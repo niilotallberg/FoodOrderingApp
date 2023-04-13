@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.foodorderingapp.Database.Database;
 import com.example.foodorderingapp.Interface.ChangeNumberItemsListener;
 import com.example.foodorderingapp.R;
 
@@ -56,12 +57,14 @@ public class RegisterActivity extends AppCompatActivity {
                 String email = etRegisterEmail.getText().toString();
                 String password = etRegisterPassword.getText().toString();
                 String confirm = etConfirmPassword.getText().toString();
+                Database db = new Database(getApplicationContext(), "foodOrderingApp", null, 1);
                 if (username.length() == 0 || email.length() == 0 || password.length() == 0 || confirm.length() == 0) {
                     Toast.makeText(getApplicationContext(), "Please fill all the fields", Toast.LENGTH_LONG).show();
                 } else {
                     if (password.compareTo(confirm) == 0) {
                         if (isPasswordValid(password)) {
                             if (isEmailValid(email)) {
+                                db.register(username, email, password);
                                 Toast.makeText(getApplicationContext(), "Registration successful", Toast.LENGTH_LONG).show();
                                 Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                                 startActivity(intent);

@@ -6,7 +6,9 @@ package com.example.foodorderingapp.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.foodorderingapp.Database.Database;
 import com.example.foodorderingapp.R;
 
 public class LoginActivity extends AppCompatActivity {
@@ -42,13 +45,23 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String username = etLoginEmail.getText().toString();
+                String email = etLoginEmail.getText().toString();
                 String password = etLoginPassword.getText().toString();
-                if (username.length() == 0 || password.length() == 0) {
+                Database db = new Database(getApplicationContext(), "foodOrderingApp", null, 1);
+                if (email.length() == 0 || password.length() == 0) {
                     Toast.makeText(getApplicationContext(), "Please fill all the fields", Toast.LENGTH_LONG).show();
                 } else {
-                    Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(LoginActivity.this, HomePageActivity.class);
-                    startActivity(intent);
+                    if (db.login(email, password) == 1) {
+                        Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_LONG).show();
+                        SharedPreferences sharedPreferences = getSharedPreferences("shared_prefs", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putString("username", username);
+                        editor.apply();
+                        Intent intent = new Intent(LoginActivity.this, HomePageActivity.class);
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Invalid Email and Password combination", Toast.LENGTH_LONG).show();
+                    }
                 }
             }
         });
