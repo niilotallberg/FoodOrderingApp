@@ -15,7 +15,7 @@ import android.widget.ImageView;
 import com.example.foodorderingapp.R;
 
 public class MainActivity extends AppCompatActivity {
-    private ConstraintLayout startBtn;
+    private ConstraintLayout btnLogin, btnRegister;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,11 +25,21 @@ public class MainActivity extends AppCompatActivity {
         ImageView backgroundImageView = findViewById(R.id.HomepageBackgroundImageView);
         backgroundImageView.setImageResource(R.drawable.wallpaper2);
 
-        startBtn = findViewById(R.id.startBtn);
-        startBtn.setOnClickListener(new View.OnClickListener() {
+        btnLogin = findViewById(R.id.btnLoginActivity);
+        btnRegister = findViewById(R.id.btnRegisterActivity);
+
+        btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
                 startActivity(intent);
             }
         });
