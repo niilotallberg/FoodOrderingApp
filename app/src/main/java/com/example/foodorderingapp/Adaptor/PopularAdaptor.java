@@ -13,12 +13,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.foodorderingapp.Activity.ShowDetailActivity;
-import com.example.foodorderingapp.Domain.CategoryDomain;
 import com.example.foodorderingapp.Domain.FoodDomain;
 import com.example.foodorderingapp.R;
 
