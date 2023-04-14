@@ -1,20 +1,22 @@
 package com.example.foodorderingapp.General;
 
+import com.example.foodorderingapp.Domain.FoodDomain;
+
 public class CartItem {
-    private String itemId;
+    private FoodDomain foodDomain;
     private int quantity;
 
-    public CartItem(String itemId, int quantity) {
-        this.itemId = itemId;
+    public CartItem(FoodDomain foodDomain, int quantity) {
+        this.foodDomain = foodDomain;
         this.quantity = quantity;
     }
 
-    public String getItemId() {
-        return itemId;
+    public FoodDomain getFoodDomain() {
+        return foodDomain;
     }
 
-    public void setItemId(String itemId) {
-        this.itemId = itemId;
+    public void setFoodDomain(FoodDomain foodDomain) {
+        this.foodDomain = foodDomain;
     }
 
     public int getQuantity() {
