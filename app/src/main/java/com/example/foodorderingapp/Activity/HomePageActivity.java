@@ -41,6 +41,7 @@ public class HomePageActivity extends AppCompatActivity {
         FloatingActionButton floatingActionButton = findViewById(R.id.btnCartView);
         LinearLayout homeBtn = findViewById(R.id.homeBtn);
         LinearLayout profileBtn = findViewById(R.id.profileBtn);
+        LinearLayout favoritesBtn = findViewById(R.id.favoritesBtn);
 
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,6 +60,13 @@ public class HomePageActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(HomePageActivity.this, ProfileSettingsActivity.class));
+            }
+        });
+
+        favoritesBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomePageActivity.this, FavoritesActivity.class));
             }
         });
     }

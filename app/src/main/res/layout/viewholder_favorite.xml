@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+    <ImageView
+        android:id="@+id/ivFavoritePic"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/pepperoni_pizza"/>
+
+    <TextView
+        android:id="@+id/txtFavoriteTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="Title"
+        android:textColor="#373b54"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivFavoritePic"
+        app:layout_constraintTop_toTopOf="@+id/ivFavoritePic" />
+
+    <TextView
+        android:id="@+id/txtFavoriteFee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0.00"
+        android:textColor="#373b54"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/txtFavoriteTitle"
+        app:layout_constraintTop_toBottomOf="@+id/txtFavoriteTitle" />
+
+    <TextView
+        android:id="@+id/txtEuroSign"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:text="€"
+        android:textColor="#FF3D00"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/txtFavoriteFee"
+        app:layout_constraintStart_toEndOf="@+id/txtFavoriteFee"
+        app:layout_constraintTop_toTopOf="@+id/txtFavoriteFee" />
+
+    <TextView
+        android:id="@+id/txtAddToCartButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@drawable/orange_button"
+        android:paddingStart="10dp"
+        android:paddingTop="3dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="3dp"
+        android:text="+ Add"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/txtEuroSign"
+        app:layout_constraintStart_toStartOf="@+id/txtFavoriteTitle"
+        app:layout_constraintTop_toBottomOf="@+id/txtFavoriteFee" />
+</androidx.constraintlayout.widget.ConstraintLayout>
