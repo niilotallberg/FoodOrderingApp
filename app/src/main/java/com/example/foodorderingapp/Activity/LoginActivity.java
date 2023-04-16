@@ -19,6 +19,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.foodorderingapp.Database.Database;
+import com.example.foodorderingapp.General.User;
+import com.example.foodorderingapp.General.UserManager;
 import com.example.foodorderingapp.R;
 
 public class LoginActivity extends AppCompatActivity {
@@ -54,10 +56,11 @@ public class LoginActivity extends AppCompatActivity {
                 } else {
                     if (db.login(email, password) == 1) {
                         Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_LONG).show();
-                        SharedPreferences sharedPreferences = getSharedPreferences("shared_prefs", Context.MODE_PRIVATE);
-                        SharedPreferences.Editor editor = sharedPreferences.edit();
-                        editor.putString("username", username);
-                        editor.apply();
+
+                        User user = new User(username, email, password);
+                        UserManager userManager = UserManager.getInstance();
+                        userManager.setCurrentUser(user);
+
                         Intent intent = new Intent(LoginActivity.this, HomePageActivity.class);
                         startActivity(intent);
                     } else {
