@@ -1,11 +1,17 @@
 package com.example.foodorderingapp.General;
 
+import com.example.foodorderingapp.Domain.FoodDomain;
+
+import java.util.ArrayList;
+
 public class User {
     private String username;
     private String email;
     private String password;
     private String address;
     private String profilePicture;
+
+    private ArrayList<FoodDomain> favoriteFoods;
 
     public User(String username, String email, String password, String address, String profilePicture) {
         this.username = username;
@@ -15,8 +21,7 @@ public class User {
         this.profilePicture = profilePicture;
     }
 
-    public User(String username, String email, String password) {
-        this.username = username;
+    public User(String email, String password) {
         this.email = email;
         this.password = password;
     }
@@ -59,5 +64,13 @@ public class User {
 
     public void setProfilePicture(String profilePicture) {
         this.profilePicture = profilePicture;
+    }
+
+    public ArrayList<FoodDomain> getFavoriteFoods() {
+        return favoriteFoods;
+    }
+
+    public void setFavoriteFoods(ArrayList<FoodDomain> favoriteFoods) {
+        this.favoriteFoods = favoriteFoods;
     }
 }
