@@ -47,7 +47,6 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String username = etLoginEmail.getText().toString();
                 String email = etLoginEmail.getText().toString();
                 String password = etLoginPassword.getText().toString();
                 Database db = new Database(getApplicationContext(), "foodOrderingApp", null, 1);
@@ -57,7 +56,7 @@ public class LoginActivity extends AppCompatActivity {
                     if (db.login(email, password) == 1) {
                         Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_LONG).show();
 
-                        User user = new User(username, email, password);
+                        User user = new User(email, password);
                         UserManager userManager = UserManager.getInstance();
                         userManager.setCurrentUser(user);
 
