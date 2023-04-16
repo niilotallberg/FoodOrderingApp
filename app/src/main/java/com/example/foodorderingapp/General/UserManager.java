@@ -21,4 +21,13 @@ public class UserManager {
     public void setCurrentUser(User currentUser) {
         this.currentUser = currentUser;
     }
+
+    public void updateCurrentUser(String username, String email, String password, String address) {
+        if (this.currentUser != null) {
+            this.currentUser.setUsername(username);
+            this.currentUser.setEmail(email);
+            this.currentUser.setPassword(password);
+            this.currentUser.setAddress(address);
+        }
+    }
 }
