@@ -13,6 +13,7 @@ public class FoodDomain implements Serializable {
     private String description;
     private Double fee;
     private int numberInCart;
+    private boolean isFavorite;
 
     public FoodDomain(String title, String pic, String description, Double fee) {
         this.title = title;
@@ -67,5 +68,13 @@ public class FoodDomain implements Serializable {
 
     public void setNumberInCart(int numberInCart) {
         this.numberInCart = numberInCart;
+    }
+
+    public boolean getIsFavorite() {
+        return isFavorite;
+    }
+
+    public void setIsFavorite(boolean isFavorite) {
+        this.isFavorite = isFavorite;
     }
 }
