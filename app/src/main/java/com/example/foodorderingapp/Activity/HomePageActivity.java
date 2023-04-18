@@ -13,6 +13,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.example.foodorderingapp.Adaptor.CategoryAdaptor;
 import com.example.foodorderingapp.Adaptor.PopularAdaptor;
@@ -83,7 +84,13 @@ public class HomePageActivity extends AppCompatActivity {
         category.add(new CategoryDomain("Drink", "drink"));
         category.add(new CategoryDomain("Dessert", "dessert"));
 
-        adapter = new CategoryAdaptor(category);
+        adapter = new CategoryAdaptor(category, new CategoryAdaptor.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                // // TODO Open categoryview
+                Toast.makeText(HomePageActivity.this, "Clicked: " + category.get(position).getTitle(), Toast.LENGTH_SHORT).show();
+            }
+        });
         recyclerViewCategoryList.setAdapter(adapter);
     }
 
