@@ -28,12 +28,16 @@ public class FavoritesActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.favoritesRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // Get the favorite products from the current user
         User currentUser = UserManager.getInstance().getCurrentUser();
         favoriteProducts = currentUser.getFavoriteFoods();
 
-        // Set up the adapter with the favoriteProducts list
         favoritesAdapter = new FavoritesAdapter(favoriteProducts);
         recyclerView.setAdapter(favoritesAdapter);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        favoritesAdapter.notifyDataSetChanged();
     }
 }
