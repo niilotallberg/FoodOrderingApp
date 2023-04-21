@@ -6,11 +6,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.foodorderingapp.Domain.FoodDomain;
 import com.example.foodorderingapp.General.User;
-import com.example.foodorderingapp.General.UserManager;
+import com.example.foodorderingapp.General.UserAuthenticator;
 import com.example.foodorderingapp.R;
 
 import java.util.ArrayList;
@@ -34,7 +33,7 @@ public class ShowDetailActivity extends AppCompatActivity {
         btnAddToFavorites.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                User currentUser = UserManager.getInstance().getCurrentUser();
+                User currentUser = UserAuthenticator.getInstance().getAuthenticatedUser();
                 if (currentUser.getFavoriteFoods() == null) {
                     currentUser.setFavoriteFoods(new ArrayList<FoodDomain>());
                 }
@@ -94,7 +93,7 @@ public class ShowDetailActivity extends AppCompatActivity {
         });
 
         // Check if the item is already in the user's favorites
-        User currentUser = UserManager.getInstance().getCurrentUser();
+        User currentUser = UserAuthenticator.getInstance().getAuthenticatedUser();
         if (currentUser.getFavoriteFoods() != null) {
             for (FoodDomain food : currentUser.getFavoriteFoods()) {
                 if (food.getTitle().equals(object.getTitle())) {

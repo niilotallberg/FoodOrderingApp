@@ -7,14 +7,14 @@ import com.example.foodorderingapp.Domain.FoodDomain;
 
 import java.util.HashMap;
 
-public class Cart {
+public class CartManager {
     private HashMap<FoodDomain, Integer> cart;
     private User cartOwner;
-    private static Cart instance;
+    private static CartManager instance;
 
-    public static Cart getInstance() {
+    public static CartManager getInstance() {
         if (instance == null) {
-            instance = new Cart();
+            instance = new CartManager();
         }
         return instance;
     }
@@ -36,5 +36,5 @@ public class Cart {
         // TODO ADD THE RIGHT QUANTITY TO CART AND SAVE
     }
 
-    private Cart() {}
+    private CartManager() {}
 }

@@ -1,27 +1,13 @@
 package com.example.foodorderingapp.General;
 
 public class UserManager {
-    private static UserManager instance;
-    private User currentUser;
 
-    private UserManager() {
-    }
+    // TODO LIST OF USERS (FILENAME = USERS.SER)
+    // TODO PUBLIC VOID ADD USER
+    // TODO GET USERS METHOD
+    // TODO UPDATE USER METHOD
 
-    public static UserManager getInstance() {
-        if (instance == null) {
-            instance = new UserManager();
-        }
-        return instance;
-    }
-
-    public User getCurrentUser() {
-        return currentUser;
-    }
-
-    public void setCurrentUser(User currentUser) {
-        this.currentUser = currentUser;
-    }
-
+    /*
     public void updateCurrentUser(String username, String email, String password, String address) {
         if (this.currentUser != null) {
             this.currentUser.setUsername(username);
@@ -30,4 +16,6 @@ public class UserManager {
             this.currentUser.setAddress(address);
         }
     }
+
+     */
 }

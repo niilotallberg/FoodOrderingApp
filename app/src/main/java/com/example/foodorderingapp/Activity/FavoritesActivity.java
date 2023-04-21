@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.foodorderingapp.Adaptor.FavoritesAdapter;
 import com.example.foodorderingapp.Domain.FoodDomain;
 import com.example.foodorderingapp.General.User;
-import com.example.foodorderingapp.General.UserManager;
+import com.example.foodorderingapp.General.UserAuthenticator;
 import com.example.foodorderingapp.R;
 
 import java.util.List;
@@ -28,7 +28,7 @@ public class FavoritesActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.favoritesRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        User currentUser = UserManager.getInstance().getCurrentUser();
+        User currentUser = UserAuthenticator.getInstance().getAuthenticatedUser();
         favoriteProducts = currentUser.getFavoriteFoods();
 
         favoritesAdapter = new FavoritesAdapter(favoriteProducts);
