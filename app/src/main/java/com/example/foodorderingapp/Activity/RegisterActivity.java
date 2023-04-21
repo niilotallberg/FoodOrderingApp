@@ -14,10 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.foodorderingapp.Database.Database;
-import com.example.foodorderingapp.Interface.ChangeNumberItemsListener;
 import com.example.foodorderingapp.R;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -58,6 +55,7 @@ public class RegisterActivity extends AppCompatActivity {
                 String email = etRegisterEmail.getText().toString();
                 String password = etRegisterPassword.getText().toString();
                 String confirm = etConfirmPassword.getText().toString();
+                /*
                 Database db = new Database(getApplicationContext(), "foodOrderingApp", null, 1);
                 // TODO CLEAN THIS TO A SEPARATE CLASS
                 // TODO CHECK FOR DUPLICATES!
@@ -82,6 +80,8 @@ public class RegisterActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Password and Confirm password didn't match", Toast.LENGTH_LONG).show();
                     }
                 }
+
+                 */
             }
         });
     }

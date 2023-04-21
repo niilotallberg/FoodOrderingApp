@@ -16,7 +16,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.foodorderingapp.Database.Database;
 import com.example.foodorderingapp.General.CartManager;
 import com.example.foodorderingapp.General.User;
 import com.example.foodorderingapp.General.UserAuthenticator;
