@@ -19,7 +19,10 @@ import android.widget.Toast;
 import com.example.foodorderingapp.General.CartManager;
 import com.example.foodorderingapp.General.User;
 import com.example.foodorderingapp.General.UserAuthenticator;
+import com.example.foodorderingapp.General.UserManager;
 import com.example.foodorderingapp.R;
+
+import java.util.Optional;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -78,9 +81,9 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private User login(String email, String password) {
-        // TODO FETCH USERS FROM USERMANAGER
-        // TODO LOOP THROUGH USERS AND CHECK IF USERNAME AND PASSWORD MATCH
-        // TODO IF MATCHES -> RETURN USER ELSE NULL
-        return null;
+        UserManager userManager = UserManager.getInstance(getApplicationContext());
+        Optional<User> optionalUser = userManager.getUser(email, password);
+        return optionalUser.orElse(null);
     }
+
 }

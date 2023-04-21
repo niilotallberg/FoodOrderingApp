@@ -2,9 +2,10 @@ package com.example.foodorderingapp.General;
 
 import com.example.foodorderingapp.Domain.FoodDomain;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class User {
+public class User implements Serializable {
     private String username;
     private String email;
     private String password;
