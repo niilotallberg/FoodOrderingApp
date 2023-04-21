@@ -1,29 +1,40 @@
 package com.example.foodorderingapp.General;
 
+import android.content.Context;
+
+import com.example.foodorderingapp.Data.Serializer;
+import com.example.foodorderingapp.Domain.FoodDomain;
+
 import java.util.HashMap;
 
 public class Cart {
-    private HashMap<String, CartItem> cartItems;
-    private User user;
+    private HashMap<FoodDomain, Integer> cart;
+    private User cartOwner;
+    private static Cart instance;
 
-    public Cart(HashMap<String, CartItem> cartItems, User user) {
-        this.cartItems = cartItems;
-        this.user = user;
+    public static Cart getInstance() {
+        if (instance == null) {
+            instance = new Cart();
+        }
+        return instance;
     }
 
-    public HashMap<String, CartItem> getCartItems() {
-        return cartItems;
+    public void intializeCart(Context context, User cartOwner) {
+        this.cartOwner = cartOwner;
+        final HashMap<FoodDomain, Integer> cart = Serializer.deserializeCart(context, this.cartOwner.getUsername());
+        if (cart == null) {
+            this.cart = new HashMap<>();
+        }
     }
 
-    public void setCartItems(HashMap<String, CartItem> cartItems) {
-        this.cartItems = cartItems;
+    private void saveCart(Context context){
+        Serializer.serializeObject(cart, context, this.cartOwner.getUsername());
     }
 
-    public User getUser() {
-        return user;
+    public void addCartItem(Context context, FoodDomain foodDomain, Integer quantity) {
+        // TODO ADD THE FUNCTIONALITY
+        // TODO ADD THE RIGHT QUANTITY TO CART AND SAVE
     }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
+    private Cart() {}
 }

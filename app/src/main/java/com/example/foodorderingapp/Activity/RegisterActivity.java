@@ -59,6 +59,9 @@ public class RegisterActivity extends AppCompatActivity {
                 String password = etRegisterPassword.getText().toString();
                 String confirm = etConfirmPassword.getText().toString();
                 Database db = new Database(getApplicationContext(), "foodOrderingApp", null, 1);
+                // TODO CLEAN THIS TO A SEPARATE CLASS
+                // TODO CHECK FOR DUPLICATES!
+                // TODO CHECK IF USERNAME CAN BE USED AS A FILE NAME
                 if (username.length() == 0 || email.length() == 0 || password.length() == 0 || confirm.length() == 0) {
                     Toast.makeText(getApplicationContext(), "Please fill all the fields", Toast.LENGTH_LONG).show();
                 } else {

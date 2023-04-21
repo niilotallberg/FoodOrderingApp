@@ -10,7 +10,6 @@ public class User {
     private String password;
     private String address;
     private String profilePicture;
-
     private ArrayList<FoodDomain> favoriteFoods;
 
     public User(String username, String email, String password, String address, String profilePicture) {

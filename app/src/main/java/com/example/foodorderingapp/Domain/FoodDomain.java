@@ -12,7 +12,6 @@ public class FoodDomain implements Serializable {
     private String pic;
     private String description;
     private Double fee;
-    private int numberInCart;
     private boolean isFavorite;
 
     public FoodDomain(String title, String pic, String description, Double fee) {
@@ -20,14 +19,6 @@ public class FoodDomain implements Serializable {
         this.pic = pic;
         this.description = description;
         this.fee = fee;
-    }
-
-    public FoodDomain(String title, String pic, String description, Double fee, int numberInCart) {
-        this.title = title;
-        this.pic = pic;
-        this.description = description;
-        this.fee = fee;
-        this.numberInCart = numberInCart;
     }
 
     public String getTitle() {
@@ -60,14 +51,6 @@ public class FoodDomain implements Serializable {
 
     public void setFee(Double fee) {
         this.fee = fee;
-    }
-
-    public int getNumberInCart() {
-        return numberInCart;
-    }
-
-    public void setNumberInCart(int numberInCart) {
-        this.numberInCart = numberInCart;
     }
 
     public boolean getIsFavorite() {
