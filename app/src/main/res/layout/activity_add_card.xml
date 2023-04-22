@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/tunnusluku_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Creditcard number:"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/tunnusluku_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tunnusluku_label"
+        android:inputType="number"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/expiring_edit_text"
+        android:layout_width="387dp"
+        android:layout_height="63dp"
+        android:layout_below="@id/tunnusluku_label"
+        android:layout_marginTop="163dp"
+        android:inputType="date"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/safety_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tunnusluku_label"
+        android:layout_marginTop="273dp"
+        android:inputType="number"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/nimi_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tunnusluku_edit_text"
+        android:layout_marginTop="16dp"
+        android:text="Name of card:"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/nimi_edit_text"
+        android:layout_width="382dp"
+        android:layout_height="67dp"
+        android:layout_below="@id/nimi_label"
+        android:layout_marginTop="-22dp"
+        android:inputType="text"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/tallenna_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nimi_edit_text"
+        android:layout_marginTop="206dp"
+        android:text="Tallenna" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/safety_edit_text"
+        android:layout_marginBottom="156dp"
+        android:text="Expiring date:"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tallenna_button"
+        android:layout_marginBottom="112dp"
+        android:text="Safety number:"
+        android:textSize="18dp" />
+
+</RelativeLayout>
