@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -27,7 +28,8 @@ import java.util.Map;
 public class CartListActivity extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
     private RecyclerView recyclerViewList;
-    private TextView txtTotalPricePrice, txtTaxPrice, txtDeliveryFeePrice, txtTotalItemsPrice, txtEmptyCart;
+    private TextView txtTotalPricePrice, txtTaxPrice, txtDeliveryFeePrice, txtTotalItemsPrice, txtEmptyCart, btnCheckout;
+
     private double tax;
     private ScrollView svCart;
     private CartManager cartManager;
@@ -44,6 +46,15 @@ public class CartListActivity extends AppCompatActivity {
         userManager = UserManager.getInstance(getApplicationContext());
         User currentUser = userManager.getCurrentUser();
         cartManager.initializeCart(getApplicationContext(), currentUser);
+
+        btnCheckout = findViewById(R.id.btnCheckout);
+
+        btnCheckout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(CartListActivity.this, OrderConfirmationActivity.class));
+            }
+        });
 
         initList();
         CalculateCart();

@@ -33,6 +33,15 @@
             android:name=".Activity.RegisterActivity"
             android:exported="false" />
         <activity
+            android:name=".Activity.OrderConfirmationActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".Activity.WaitingScreenActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".Activity.AddCardActivity"
+            android:exported="false"/>
+        <activity
             android:name=".Activity.MainActivity"
             android:exported="true">
             <intent-filter>

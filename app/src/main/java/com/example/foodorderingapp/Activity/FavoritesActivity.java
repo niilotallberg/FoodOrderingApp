@@ -17,8 +17,10 @@ import java.util.List;
 public class FavoritesActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
+
     private FavoritesAdapter favoritesAdapter;
     private List<FoodDomain> favoriteProducts;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
