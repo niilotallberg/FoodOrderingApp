@@ -6,9 +6,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.foodorderingapp.General.User;
 import com.example.foodorderingapp.General.UserAuthenticator;
+import com.example.foodorderingapp.General.UserManager;
 import com.example.foodorderingapp.R;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -44,7 +46,6 @@ public class ProfileSettingsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(ProfileSettingsActivity.this, LoginActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                // TODO Ulos-kirjautumis toiminnallisuudet
                 startActivity(intent);
             }
         });
@@ -52,7 +53,23 @@ public class ProfileSettingsActivity extends AppCompatActivity {
         btnSaveChanges.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO CALL USERMANAGER AND SERIALIZE THE USER
+                String username = etUsername.getText().toString();
+                String email = etEmail.getText().toString();
+                String password = etPassword.getText().toString();
+                String address = etAddress.getText().toString();
+
+                if (!username.isEmpty() && !email.isEmpty() && !password.isEmpty() && !address.isEmpty()) {
+                    UserManager userManager = UserManager.getInstance(getApplicationContext());
+                    currentUser.setUsername(username);
+                    currentUser.setEmail(email);
+                    currentUser.setPassword(password);
+                    currentUser.setAddress(address);
+                    // TODO PROFILE PICTURE
+                    userManager.updateUser(currentUser);
+                    Toast.makeText(ProfileSettingsActivity.this, "Profile updated successfully.", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(ProfileSettingsActivity.this, "Please fill in all fields.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

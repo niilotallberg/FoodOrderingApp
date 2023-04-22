@@ -13,12 +13,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.foodorderingapp.Adaptor.CategoryAdaptor;
 import com.example.foodorderingapp.Adaptor.PopularAdaptor;
 import com.example.foodorderingapp.Domain.CategoryDomain;
 import com.example.foodorderingapp.Domain.FoodDomain;
+import com.example.foodorderingapp.General.User;
+import com.example.foodorderingapp.General.UserAuthenticator;
 import com.example.foodorderingapp.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -32,6 +35,10 @@ public class HomePageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
+
+        User currentUser = UserAuthenticator.getInstance().getAuthenticatedUser();
+        TextView txtWelcomeText = findViewById(R.id.txtWelcomeText);
+        txtWelcomeText.setText(String.format("Hi %s", currentUser.getUsername()));
 
         recyclerViewCategory();
         recyclerViewPopular();
