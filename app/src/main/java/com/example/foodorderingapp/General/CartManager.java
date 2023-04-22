@@ -35,7 +35,7 @@ public class CartManager {
     }
 
     private void saveCart(Context context){
-        Serializer.serializeObject(cart, context, this.cartOwner.getUsername());
+        Serializer.serializeObject(cart, context, this.cartOwner.getUsername() + "_cart.ser");
     }
 
 
