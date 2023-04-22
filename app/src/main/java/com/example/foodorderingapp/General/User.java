@@ -1,19 +1,22 @@
 package com.example.foodorderingapp.General;
 
 import com.example.foodorderingapp.Domain.FoodDomain;
+import com.example.foodorderingapp.R;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 
 public class User implements Serializable {
+
+    public static final int DEFAULT_PROFILE_PICTURE_ID = R.drawable.baseline_profile_picture;
     private String username;
     private String email;
     private String password;
     private String address;
-    private String profilePicture;
+    private int profilePicture;
     private ArrayList<FoodDomain> favoriteFoods;
 
-    public User(String username, String email, String password, String address, String profilePicture) {
+    public User(String username, String email, String password, String address, int profilePicture) {
         this.username = username;
         this.email = email;
         this.password = password;
@@ -58,11 +61,11 @@ public class User implements Serializable {
         this.address = address;
     }
 
-    public String getProfilePicture() {
+    public int getProfilePicture() {
         return profilePicture;
     }
 
-    public void setProfilePicture(String profilePicture) {
+    public void setProfilePicture(int profilePicture) {
         this.profilePicture = profilePicture;
     }
 

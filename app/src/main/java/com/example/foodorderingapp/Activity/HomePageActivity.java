@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,6 +32,8 @@ public class HomePageActivity extends AppCompatActivity {
     private RecyclerView.Adapter adapter, adapter2;
     private RecyclerView recyclerViewCategoryList, recyclerViewPopularList;
 
+    private ImageView ivProfilePicture;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,9 +43,23 @@ public class HomePageActivity extends AppCompatActivity {
         TextView txtWelcomeText = findViewById(R.id.txtWelcomeText);
         txtWelcomeText.setText(String.format("Hi %s", currentUser.getUsername()));
 
+        ivProfilePicture = findViewById(R.id.ivProfilePicture);
+        ivProfilePicture.setImageResource(currentUser.getProfilePicture());
+
         recyclerViewCategory();
         recyclerViewPopular();
         bottomNavigation();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // Update profile picture when returning to this activity
+        User currentUser = UserAuthenticator.getInstance().getAuthenticatedUser();
+        if (currentUser != null) {
+            ivProfilePicture.setImageResource(currentUser.getProfilePicture());
+        }
     }
 
     private void bottomNavigation() {

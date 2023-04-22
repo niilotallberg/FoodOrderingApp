@@ -12,7 +12,7 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/currentProfileImage"
+            android:id="@+id/ivCurrentProfilePicture"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_gravity="center"
@@ -84,7 +84,7 @@
             android:layout_marginBottom="16dp">
 
             <ImageView
-                android:id="@+id/profileImageOption1"
+                android:id="@+id/ivProfileImageOption1"
                 android:layout_width="0dp"
                 android:layout_height="100dp"
                 android:layout_weight="1"
@@ -92,7 +92,7 @@
                 android:src="@drawable/woman_blond_hair" />
 
             <ImageView
-                android:id="@+id/profileImageOption2"
+                android:id="@+id/ivProfileImageOption2"
                 android:layout_width="0dp"
                 android:layout_height="100dp"
                 android:layout_weight="1"
@@ -100,7 +100,7 @@
                 android:src="@drawable/woman_brown_hair" />
 
             <ImageView
-                android:id="@+id/profileImageOption3"
+                android:id="@+id/ivProfileImageOption3"
                 android:layout_width="0dp"
                 android:layout_height="100dp"
                 android:layout_weight="1"
@@ -108,7 +108,7 @@
                 android:src="@drawable/man_blond_hair" />
 
             <ImageView
-                android:id="@+id/profileImageOption4"
+                android:id="@+id/ivProfileImageOption4"
                 android:layout_width="0dp"
                 android:layout_height="100dp"
                 android:layout_weight="1"

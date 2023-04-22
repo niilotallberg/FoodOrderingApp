@@ -67,7 +67,7 @@ public class RegisterActivity extends AppCompatActivity {
                 if (errorMessage != null) {
                     Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_LONG).show();
                 } else {
-                    User newUser = new User(username, email, password, "", ""); // Empty address and profile picture.
+                    User newUser = new User(username, email, password, "", User.DEFAULT_PROFILE_PICTURE_ID);
                     userManager.addUser(newUser);
 
                     Toast.makeText(getApplicationContext(), "Registration successful", Toast.LENGTH_LONG).show();
