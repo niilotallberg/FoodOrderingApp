@@ -9,15 +9,16 @@ import java.util.List;
 import java.util.Optional;
 
 public class UserManager {
-
     private static final String USERS_FILE = "users.ser";
     private static UserManager instance;
     private List<User> users;
+    private User currentUser;
     private Context context;
 
     private UserManager(Context context) {
         this.context = context;
         users = loadUsers();
+        currentUser = null;
     }
 
     public static UserManager getInstance(Context context) {
@@ -72,5 +73,13 @@ public class UserManager {
             }
         }
         return false;
+    }
+
+    public void setCurrentUser(User user) {
+        currentUser = user;
+    }
+
+    public User getCurrentUser() {
+        return currentUser;
     }
 }

@@ -1,6 +1,7 @@
 package com.example.foodorderingapp.General;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 
 import com.example.foodorderingapp.Data.Serializer;
 import com.example.foodorderingapp.Domain.FoodDomain;
@@ -19,11 +20,17 @@ public class CartManager {
         return instance;
     }
 
-    public void intializeCart(Context context, User cartOwner) {
+    public void initializeCart(Context context, User cartOwner) {
+        if (cartOwner == null) {
+            // TODO handle the case where cartOwner is null, such as throwing an exception or logging an error
+            return;
+        }
         this.cartOwner = cartOwner;
         final HashMap<FoodDomain, Integer> cart = Serializer.deserializeCart(context, this.cartOwner.getUsername());
         if (cart == null) {
             this.cart = new HashMap<>();
+        } else {
+            this.cart = cart;
         }
     }
 
@@ -31,9 +38,45 @@ public class CartManager {
         Serializer.serializeObject(cart, context, this.cartOwner.getUsername());
     }
 
+
     public void addCartItem(Context context, FoodDomain foodDomain, Integer quantity) {
-        // TODO ADD THE FUNCTIONALITY
-        // TODO ADD THE RIGHT QUANTITY TO CART AND SAVE
+        FoodDomain existingItem = null;
+
+        for (FoodDomain item : cart.keySet()) {
+            if (item.getTitle().equals(foodDomain.getTitle())) {
+                existingItem = item;
+                break;
+            }
+        }
+
+        if (existingItem != null) {
+            Integer currentQuantity = cart.get(existingItem);
+            int newQuantity = currentQuantity + quantity;
+            if (newQuantity <= 0) {
+                cart.remove(existingItem);
+            } else {
+                cart.put(existingItem, newQuantity);
+            }
+        } else if (quantity > 0) {
+            cart.put(foodDomain, quantity);
+        }
+
+        saveCart(context);
+    }
+
+    public void removeCartItem(Context context, FoodDomain foodDomain) {
+        if (cart.containsKey(foodDomain)) {
+            cart.remove(foodDomain);
+            saveCart(context);
+        }
+    }
+
+    public HashMap<FoodDomain, Integer> getCartItems() {
+        return cart;
+    }
+
+    public User getCartOwner() {
+        return cartOwner;
     }
 
     private CartManager() {}

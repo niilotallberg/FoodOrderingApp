@@ -56,7 +56,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 User user = login(email, password);
                 if (user != null) {
-                    CartManager.getInstance().intializeCart(LoginActivity.this, user);
+                    CartManager.getInstance().initializeCart(LoginActivity.this, user);
 
                     UserAuthenticator userAuthenticator = UserAuthenticator.getInstance();
                     userAuthenticator.setAuthenticatedUser(user);

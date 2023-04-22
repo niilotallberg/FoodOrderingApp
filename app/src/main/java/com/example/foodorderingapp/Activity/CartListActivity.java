@@ -1,8 +1,3 @@
-// Ohjelman koodaamisessa käytetty apuna seuraavia lähteitä:
-// https://www.youtube.com/watch?v=9nWcPPHBzMk
-// https://www.youtube.com/watch?v=BLfqZlUI_MM&t=122s
-// https://www.youtube.com/watch?v=9CkpMm-n5iA
-
 package com.example.foodorderingapp.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,25 +12,39 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.example.foodorderingapp.Adaptor.CartListAdapter;
+import com.example.foodorderingapp.Domain.FoodDomain;
+import com.example.foodorderingapp.General.User;
+import com.example.foodorderingapp.General.UserManager;
 import com.example.foodorderingapp.R;
+import com.example.foodorderingapp.General.CartManager;
+import com.example.foodorderingapp.Interface.ChangeNumberItemsListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class CartListActivity extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
     private RecyclerView recyclerViewList;
-    private TextView txtTotalPricePrice, txtTaxPrice, txtDeliveryFeePrice, txtTotalItemsPrice, txtEmpyCart;
+    private TextView txtTotalPricePrice, txtTaxPrice, txtDeliveryFeePrice, txtTotalItemsPrice, txtEmptyCart;
     private double tax;
-    // private ManagementCart managementCart;
     private ScrollView svCart;
+    private CartManager cartManager;
 
-
+    private UserManager userManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart_list);
-        // initialize views
         initView();
+        cartManager = CartManager.getInstance();
+
+        userManager = UserManager.getInstance(getApplicationContext());
+        User currentUser = userManager.getCurrentUser();
+        cartManager.initializeCart(getApplicationContext(), currentUser);
+
         initList();
         CalculateCart();
         bottomNavigation();
@@ -89,37 +98,55 @@ public class CartListActivity extends AppCompatActivity {
         txtTaxPrice = findViewById(R.id.txtTaxPrice);
         txtDeliveryFeePrice = findViewById(R.id.txtDeliveryFeePrice);
         txtTotalItemsPrice = findViewById(R.id.txtTotalItemsPrice);
-        txtEmpyCart = findViewById(R.id.txtEmptyCart);
+        txtEmptyCart = findViewById(R.id.txtEmptyCart);
         svCart = findViewById(R.id.svCart);
         recyclerViewList = findViewById(R.id.rvTotalItems);
     }
-    private void initList(){
+
+    private void initList() {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recyclerViewList.setLayoutManager(linearLayoutManager);
-        // adapter = new CartListAdapter() TODO Toteuta loppuun -> kutsu CalculateCart()
 
-        // recyclerViewList.setAdapter(adapter);
+        adapter = new CartListAdapter(cartManager, this, new ChangeNumberItemsListener() {
+            @Override
+            public void changed() {
+                CalculateCart();
+            }
+        });
 
-        // if (OSTOSKORI ON TYHJÄ) {
-        //    txtEmpyCart.setVisibility(View.VISIBLE);
-        //    svCart.setVisibility(View.GONE);
-        // } else {
-        //    txtEmpyCart.setVisibility(View.GONE);
-        //    svCart.setVisibility(View.VISIBLE);
-        // }
+        recyclerViewList.setAdapter(adapter);
+
+        if (cartManager.getCartItems().isEmpty()) {
+            txtEmptyCart.setVisibility(View.VISIBLE);
+            svCart.setVisibility(View.GONE);
+        } else {
+            txtEmptyCart.setVisibility(View.GONE);
+            svCart.setVisibility(View.VISIBLE);
+        }
     }
 
     private void CalculateCart() {
         double percentTax = 0.14;
         double delivery = 5;
+        double itemTotal = 0;
 
-        // tax = Math.round((KOKO SUMMA * percentTax) * 100) / 100 TODO Vaatii ostoskorin toiminnaliisuuden
-        // double total = Math.round((KOKO SUMMA + tax + delivery) * 100) / 100
-        // double itemTotal = Math.round(KOKO SUMMA * 100) / 100
+        HashMap<FoodDomain, Integer> cartItems = cartManager.getCartItems();
+        for (Map.Entry<FoodDomain, Integer> entry : cartItems.entrySet()) {
+            itemTotal += entry.getKey().getFee() * entry.getValue();
+        }
 
-        // txtTaxPrice.setText(tax + "€");
-        // txtDeliveryFeePrice.setText(delivery + "€");
-        // txtTotalItemsPrice.setText(itemTotal + "€");
-        // txtTotalPricePrice.setText(total + "€");
+        if (cartItems.isEmpty()) {
+            delivery = 0;
+        }
+
+        tax = Math.round((itemTotal * percentTax) * 100) / 100;
+        double total = Math.round((itemTotal + tax + delivery) * 100) / 100.0;
+
+
+
+        txtTaxPrice.setText(String.format("%.2f€", tax));
+        txtDeliveryFeePrice.setText(String.format("%.2f€", delivery));
+        txtTotalItemsPrice.setText(String.format("%.2f€", itemTotal));
+        txtTotalPricePrice.setText(String.format("%.2f€", total));
     }
 }

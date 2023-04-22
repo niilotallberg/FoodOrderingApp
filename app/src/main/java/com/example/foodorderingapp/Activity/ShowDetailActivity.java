@@ -6,8 +6,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.foodorderingapp.Domain.FoodDomain;
+import com.example.foodorderingapp.General.CartManager;
 import com.example.foodorderingapp.General.User;
 import com.example.foodorderingapp.General.UserAuthenticator;
 import com.example.foodorderingapp.R;
@@ -59,6 +61,20 @@ public class ShowDetailActivity extends AppCompatActivity {
 
                 isFavorite = !isFavorite;
                 updateFavoriteButtonState();
+            }
+        });
+
+        btnAddToCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int quantity = Integer.parseInt(txtAmount.getText().toString());
+
+                CartManager cartManager = CartManager.getInstance();
+                cartManager.initializeCart(getApplicationContext(), UserAuthenticator.getInstance().getAuthenticatedUser());
+                cartManager.addCartItem(getApplicationContext(), object, quantity);
+
+                String message = "Added " + quantity + " " + object.getTitle() + " to your cart";
+                Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
             }
         });
     }
