@@ -72,13 +72,8 @@ public class CartListAdapter extends RecyclerView.Adapter<CartListAdapter.ViewHo
                 if (currentQuantity == null || currentQuantity == 0) {
                     return;
                 }
-                currentQuantity -= 1;
-                if (currentQuantity == 0) {
-                    cartManager.removeCartItem(context, foodDomain); // Remove the item from the cartManager
-                    cartItems.remove(foodDomain);
-                } else {
-                    cartItems.put(foodDomain, currentQuantity);
-                }
+
+                cartManager.removeCartItem(context, foodDomain); // Remove the item from the cartManager
                 changeNumberItemsListener.changed();
                 notifyDataSetChanged(); // Update the list
             }

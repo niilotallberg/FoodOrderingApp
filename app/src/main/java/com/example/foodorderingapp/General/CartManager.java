@@ -66,7 +66,13 @@ public class CartManager {
 
     public void removeCartItem(Context context, FoodDomain foodDomain) {
         if (cart.containsKey(foodDomain)) {
-            cart.remove(foodDomain);
+            if (cart.get(foodDomain) > 1) {
+                int newValue = cart.get(foodDomain) - 1;
+                cart.put(foodDomain, newValue);
+            }
+            else {
+                cart.remove(foodDomain);
+            }
             saveCart(context);
         }
     }
