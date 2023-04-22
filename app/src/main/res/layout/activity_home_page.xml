@@ -60,38 +60,18 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/txtWelcomeText" />
 
-                <EditText
-                    android:id="@+id/etSearchBar"
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="32dp"
-                    android:background="@drawable/search_bar_background"
-                    android:drawableLeft="@drawable/baseline_search_24"
-                    android:drawablePadding="10dp"
-                    android:ems="10"
-                    android:hint="Find Your Food"
-                    android:inputType="textPersonName"
-                    android:paddingStart="10dp"
-                    android:textSize="16sp"
-                    android:textStyle="italic"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txtOrderAndEat" />
-
                 <TextView
                     android:id="@+id/txtCategories"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="32dp"
                     android:text="Categories"
                     android:textColor="#000000"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/etSearchBar" />
+                    app:layout_constraintTop_toBottomOf="@+id/txtOrderAndEat" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvCategories"
