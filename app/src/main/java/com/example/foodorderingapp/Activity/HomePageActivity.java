@@ -31,8 +31,8 @@ import java.util.ArrayList;
 public class HomePageActivity extends AppCompatActivity {
     private RecyclerView.Adapter adapter, adapter2;
     private RecyclerView recyclerViewCategoryList, recyclerViewPopularList;
-
     private ImageView ivProfilePicture;
+    private TextView txtWelcomeText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +40,7 @@ public class HomePageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home_page);
 
         User currentUser = UserAuthenticator.getInstance().getAuthenticatedUser();
-        TextView txtWelcomeText = findViewById(R.id.txtWelcomeText);
+        txtWelcomeText = findViewById(R.id.txtWelcomeText);
         txtWelcomeText.setText(String.format("Hi %s", currentUser.getUsername()));
 
         ivProfilePicture = findViewById(R.id.ivProfilePicture);
@@ -59,6 +59,7 @@ public class HomePageActivity extends AppCompatActivity {
         User currentUser = UserAuthenticator.getInstance().getAuthenticatedUser();
         if (currentUser != null) {
             ivProfilePicture.setImageResource(currentUser.getProfilePicture());
+            txtWelcomeText.setText(String.format("Hi %s", currentUser.getUsername())); // Update username
         }
     }
 
