@@ -45,10 +45,6 @@ public class Serializer {
         return null;
     }
 
-    public static void serializeCart(HashMap<FoodDomain, Integer> cart, Context context, String fileName) {
-        serializeObject(cart, context, fileName);
-    }
-
     public static HashMap<FoodDomain, Integer> deserializeCart(Context context, String fileName) {
         HashMap<FoodDomain, Integer> deserializedCart = deserializeObject(context, fileName);
         if (deserializedCart == null) {
