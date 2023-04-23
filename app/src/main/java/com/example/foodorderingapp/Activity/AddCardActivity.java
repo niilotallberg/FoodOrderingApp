@@ -17,22 +17,22 @@ import com.example.foodorderingapp.R;
 
 public class AddCardActivity extends AppCompatActivity {
 
-    private EditText tunnuslukuEditText;
-    private EditText nimiEditText;
+    private EditText etCardNumber;
+    private EditText etNameOnCard;
 
-    private EditText expiringEditText;
+    private EditText etExpiringDate;
 
-    private EditText safetyEditText;
+    private EditText etSafetyNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_card);
 
-        tunnuslukuEditText = findViewById(R.id.tunnusluku_edit_text);
-        nimiEditText = findViewById(R.id.nimi_edit_text);
-        expiringEditText = findViewById(R.id.expiring_edit_text);
-        safetyEditText = findViewById(R.id.safety_edit_text);
+        etCardNumber = findViewById(R.id.etCardNumber);
+        etNameOnCard = findViewById(R.id.etNameOnCard);
+        etExpiringDate = findViewById(R.id.expiring_edit_text);
+        etSafetyNumber = findViewById(R.id.safety_edit_text);
 
         Button tallennaButton = findViewById(R.id.tallenna_button);
         tallennaButton.setOnClickListener(new View.OnClickListener() {
@@ -44,10 +44,10 @@ public class AddCardActivity extends AppCompatActivity {
     }
 
     private void tallennaTunnusluku() {
-        String tunnuslukuString = tunnuslukuEditText.getText().toString();
-        String nimiString = nimiEditText.getText().toString();
-        String expiringString = expiringEditText.getText().toString();
-        String safetyString = safetyEditText.getText().toString();
+        String tunnuslukuString = etCardNumber.getText().toString();
+        String nimiString = etNameOnCard.getText().toString();
+        String expiringString = etExpiringDate.getText().toString();
+        String safetyString = etSafetyNumber.getText().toString();
 
         // Tallenna tunnusluku ja nimi tietokantaan tai muuhun tallennuspaikkaan tässä
 
