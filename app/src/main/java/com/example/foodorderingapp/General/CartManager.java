@@ -31,7 +31,7 @@ public class CartManager {
             return;
         }
         this.cartOwner = cartOwner;
-        final HashMap<FoodDomain, Integer> cart = Serializer.deserializeCart(context, this.cartOwner.getUsername());
+        final HashMap<FoodDomain, Integer> cart = Serializer.deserializeCart(context, this.cartOwner.getUsername() + "_cart.ser");
         if (cart == null) {
             this.cart = new HashMap<>();
         } else {
