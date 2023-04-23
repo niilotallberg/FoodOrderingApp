@@ -43,7 +43,6 @@ public class ShowDetailActivity extends AppCompatActivity {
             public void onClick(View view) {
                 FavoritesManager favoritesManager = FavoritesManager.getInstance(getApplicationContext());
                 User currentUser = UserAuthenticator.getInstance().getAuthenticatedUser();
-                currentUser.setFavoriteFoods(favoritesManager.loadFavorites(currentUser));
 
                 boolean isAlreadyFavorite = false;
                 int favoriteIndex = -1;
