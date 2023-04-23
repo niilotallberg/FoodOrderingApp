@@ -3,7 +3,7 @@
 // https://www.youtube.com/watch?v=BLfqZlUI_MM&t=122s
 // https://www.youtube.com/watch?v=9CkpMm-n5iA
 
-package com.example.foodorderingapp.Adaptor;
+package com.example.foodorderingapp.Adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,12 +16,12 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.foodorderingapp.Domain.CategoryDomain;
+import com.example.foodorderingapp.General.CategoryDomain;
 import com.example.foodorderingapp.R;
 
 import java.util.ArrayList;
 
-public class CategoryAdaptor extends RecyclerView.Adapter<CategoryAdaptor.ViewHolder> {
+public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder> {
     ArrayList<CategoryDomain> categoryDomains;
     private OnItemClickListener onItemClickListener;
 
@@ -29,7 +29,7 @@ public class CategoryAdaptor extends RecyclerView.Adapter<CategoryAdaptor.ViewHo
         void onItemClick(int position);
     }
 
-    public CategoryAdaptor(ArrayList<CategoryDomain> categoryDomains, OnItemClickListener onItemClickListener) {
+    public CategoryAdapter(ArrayList<CategoryDomain> categoryDomains, OnItemClickListener onItemClickListener) {
         this.categoryDomains = categoryDomains;
         this.onItemClickListener = onItemClickListener;
     }
@@ -41,7 +41,7 @@ public class CategoryAdaptor extends RecyclerView.Adapter<CategoryAdaptor.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CategoryAdaptor.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CategoryAdapter.ViewHolder holder, int position) {
         holder.categoryName.setText(categoryDomains.get(position).getTitle());
         String picUrl = "";
         switch (position) {

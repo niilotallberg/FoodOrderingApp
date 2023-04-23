@@ -5,7 +5,6 @@
 
 package com.example.foodorderingapp.General;
 
-import com.example.foodorderingapp.Domain.FoodDomain;
 import com.example.foodorderingapp.R;
 
 import java.io.Serializable;

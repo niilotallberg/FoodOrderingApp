@@ -5,8 +5,7 @@
 
 package com.example.foodorderingapp.Helpers;
 
-import com.example.foodorderingapp.General.User;
-import com.example.foodorderingapp.General.UserManager;
+import com.example.foodorderingapp.Manager.UserManager;
 
 import java.util.regex.Pattern;
 

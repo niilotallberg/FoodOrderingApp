@@ -3,7 +3,7 @@
 // https://www.youtube.com/watch?v=BLfqZlUI_MM&t=122s
 // https://www.youtube.com/watch?v=9CkpMm-n5iA
 
-package com.example.foodorderingapp.Adaptor;
+package com.example.foodorderingapp.Adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -17,15 +17,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.foodorderingapp.Activity.ShowDetailActivity;
-import com.example.foodorderingapp.Domain.FoodDomain;
+import com.example.foodorderingapp.General.FoodDomain;
 import com.example.foodorderingapp.R;
 
 import java.util.ArrayList;
 
-public class PopularAdaptor extends RecyclerView.Adapter<PopularAdaptor.ViewHolder> {
+public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.ViewHolder> {
     ArrayList<FoodDomain>PopularFood;
 
-    public PopularAdaptor(ArrayList<FoodDomain> PopularFood) {
+    public PopularAdapter(ArrayList<FoodDomain> PopularFood) {
         this.PopularFood = PopularFood;
     }
 
@@ -37,7 +37,7 @@ public class PopularAdaptor extends RecyclerView.Adapter<PopularAdaptor.ViewHold
 
     @SuppressLint("RecyclerView")
     @Override
-    public void onBindViewHolder(@NonNull PopularAdaptor.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull PopularAdapter.ViewHolder holder, int position) {
         holder.title.setText(PopularFood.get(position).getTitle());
         holder.fee.setText(String.valueOf(PopularFood.get(position).getFee()));
 

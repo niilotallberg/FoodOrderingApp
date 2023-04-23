@@ -3,7 +3,7 @@
 // https://www.youtube.com/watch?v=BLfqZlUI_MM&t=122s
 // https://www.youtube.com/watch?v=9CkpMm-n5iA
 
-package com.example.foodorderingapp.Domain;
+package com.example.foodorderingapp.General;
 
 public class CategoryDomain {
     private String title;

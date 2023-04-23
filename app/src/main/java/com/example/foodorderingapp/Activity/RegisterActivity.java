@@ -17,7 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.foodorderingapp.General.User;
-import com.example.foodorderingapp.General.UserManager;
+import com.example.foodorderingapp.Manager.UserManager;
 import com.example.foodorderingapp.Helpers.RegistrationHelper;
 import com.example.foodorderingapp.R;
 

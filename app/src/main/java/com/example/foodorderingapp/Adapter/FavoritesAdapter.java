@@ -3,7 +3,7 @@
 // https://www.youtube.com/watch?v=BLfqZlUI_MM&t=122s
 // https://www.youtube.com/watch?v=9CkpMm-n5iA
 
-package com.example.foodorderingapp.Adaptor;
+package com.example.foodorderingapp.Adapter;
 
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -16,7 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.foodorderingapp.Activity.ShowDetailActivity;
-import com.example.foodorderingapp.Domain.FoodDomain;
+import com.example.foodorderingapp.General.FoodDomain;
 import com.example.foodorderingapp.R;
 
 import java.util.List;

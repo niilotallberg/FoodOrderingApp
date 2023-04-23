@@ -17,12 +17,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.foodorderingapp.Adaptor.CategoryAdaptor;
-import com.example.foodorderingapp.Adaptor.PopularAdaptor;
-import com.example.foodorderingapp.Domain.CategoryDomain;
-import com.example.foodorderingapp.Domain.FoodDomain;
+import com.example.foodorderingapp.Adapter.CategoryAdapter;
+import com.example.foodorderingapp.Adapter.PopularAdapter;
+import com.example.foodorderingapp.General.CategoryDomain;
+import com.example.foodorderingapp.General.FoodDomain;
 import com.example.foodorderingapp.General.User;
-import com.example.foodorderingapp.General.UserAuthenticator;
+import com.example.foodorderingapp.Helpers.UserAuthenticator;
 import com.example.foodorderingapp.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -116,7 +116,7 @@ public class HomePageActivity extends AppCompatActivity {
         category.add(new CategoryDomain("Drink", "drink"));
         category.add(new CategoryDomain("Dessert", "dessert"));
 
-        adapter = new CategoryAdaptor(category, new CategoryAdaptor.OnItemClickListener() {
+        adapter = new CategoryAdapter(category, new CategoryAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
                 // // TODO Open categoryview
@@ -138,7 +138,7 @@ public class HomePageActivity extends AppCompatActivity {
         foodList.add(new FoodDomain("CocaCola", "cocacola", "CocaCola - Normal sugar", 3.50));
         foodList.add(new FoodDomain("Ice Cream", "ice_cream", "Strawberry, vanilla and chocolate ice cream", 6.50));
 
-        adapter2 = new PopularAdaptor(foodList);
+        adapter2 = new PopularAdapter(foodList);
         recyclerViewPopularList.setAdapter(adapter2);
     }
 }

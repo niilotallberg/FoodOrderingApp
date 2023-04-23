@@ -11,10 +11,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.foodorderingapp.Adaptor.FavoritesAdapter;
-import com.example.foodorderingapp.Domain.FoodDomain;
+import com.example.foodorderingapp.Adapter.FavoritesAdapter;
+import com.example.foodorderingapp.General.FoodDomain;
 import com.example.foodorderingapp.General.User;
-import com.example.foodorderingapp.General.UserAuthenticator;
+import com.example.foodorderingapp.Helpers.UserAuthenticator;
 import com.example.foodorderingapp.R;
 
 import java.util.List;

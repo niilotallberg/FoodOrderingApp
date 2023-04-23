@@ -3,7 +3,7 @@
 // https://www.youtube.com/watch?v=BLfqZlUI_MM&t=122s
 // https://www.youtube.com/watch?v=9CkpMm-n5iA
 
-package com.example.foodorderingapp.Adaptor;
+package com.example.foodorderingapp.Adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -16,13 +16,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.foodorderingapp.Domain.FoodDomain;
-import com.example.foodorderingapp.General.CartManager;
+import com.example.foodorderingapp.General.FoodDomain;
+import com.example.foodorderingapp.Manager.CartManager;
 import com.example.foodorderingapp.Interface.ChangeNumberItemsListener;
 import com.example.foodorderingapp.R;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 
 public class CartListAdapter extends RecyclerView.Adapter<CartListAdapter.ViewHolder> {

@@ -13,14 +13,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.foodorderingapp.Domain.FoodDomain;
-import com.example.foodorderingapp.General.CartManager;
-import com.example.foodorderingapp.General.FavoritesManager;
+import com.example.foodorderingapp.General.FoodDomain;
+import com.example.foodorderingapp.Manager.CartManager;
+import com.example.foodorderingapp.Manager.FavoritesManager;
 import com.example.foodorderingapp.General.User;
-import com.example.foodorderingapp.General.UserAuthenticator;
+import com.example.foodorderingapp.Helpers.UserAuthenticator;
 import com.example.foodorderingapp.R;
-
-import java.util.ArrayList;
 
 public class ShowDetailActivity extends AppCompatActivity {
     private TextView btnAddToCart;

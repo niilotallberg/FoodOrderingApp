@@ -3,15 +3,15 @@
 // https://www.youtube.com/watch?v=BLfqZlUI_MM&t=122s
 // https://www.youtube.com/watch?v=9CkpMm-n5iA
 
-package com.example.foodorderingapp.General;
+package com.example.foodorderingapp.Manager;
 
 import android.content.Context;
 
 import com.example.foodorderingapp.Data.Serializer;
-import com.example.foodorderingapp.Domain.FoodDomain;
+import com.example.foodorderingapp.General.FoodDomain;
+import com.example.foodorderingapp.General.User;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class FavoritesManager {
     private static FavoritesManager instance;
