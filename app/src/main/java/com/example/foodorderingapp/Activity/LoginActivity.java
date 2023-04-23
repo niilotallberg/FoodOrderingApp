@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.foodorderingapp.General.CartManager;
+import com.example.foodorderingapp.General.FavoritesManager;
 import com.example.foodorderingapp.General.User;
 import com.example.foodorderingapp.General.UserAuthenticator;
 import com.example.foodorderingapp.General.UserManager;
@@ -60,6 +61,10 @@ public class LoginActivity extends AppCompatActivity {
 
                     UserAuthenticator userAuthenticator = UserAuthenticator.getInstance();
                     userAuthenticator.setAuthenticatedUser(user);
+
+                    // Load the user's favorites and set them to the User object
+                    FavoritesManager favoritesManager = FavoritesManager.getInstance(getApplicationContext());
+                    user.setFavoriteFoods(favoritesManager.loadFavorites(user));
 
                     Intent intent = new Intent(LoginActivity.this, HomePageActivity.class);
                     startActivity(intent);

@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.foodorderingapp.Domain.FoodDomain;
 import com.example.foodorderingapp.General.CartManager;
+import com.example.foodorderingapp.General.FavoritesManager;
 import com.example.foodorderingapp.General.User;
 import com.example.foodorderingapp.General.UserAuthenticator;
 import com.example.foodorderingapp.R;
@@ -40,10 +41,9 @@ public class ShowDetailActivity extends AppCompatActivity {
         btnAddToFavorites.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                FavoritesManager favoritesManager = FavoritesManager.getInstance(getApplicationContext());
                 User currentUser = UserAuthenticator.getInstance().getAuthenticatedUser();
-                if (currentUser.getFavoriteFoods() == null) {
-                    currentUser.setFavoriteFoods(new ArrayList<FoodDomain>());
-                }
+                currentUser.setFavoriteFoods(favoritesManager.loadFavorites(currentUser));
 
                 boolean isAlreadyFavorite = false;
                 int favoriteIndex = -1;
@@ -63,6 +63,7 @@ public class ShowDetailActivity extends AppCompatActivity {
                     currentUser.getFavoriteFoods().add(object);
                     object.setIsFavorite(true);
                 }
+                favoritesManager.saveFavorites(currentUser, currentUser.getFavoriteFoods());
 
                 isFavorite = !isFavorite;
                 updateFavoriteButtonState();
