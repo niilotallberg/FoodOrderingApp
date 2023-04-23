@@ -24,7 +24,7 @@ public class ProfileSettingsActivity extends AppCompatActivity {
 
     private Button btnLogout;
     private Button btnSaveChanges;
-    private TextInputEditText etUsername, etEmail, etPassword, etAddress;
+    private TextInputEditText etEmail, etPassword, etAddress;
     private ImageView ivProfileImageOption1, ivProfileImageOption2, ivProfileImageOption3, ivProfileImageOption4;
 
     private int selectedProfilePictureId;
@@ -40,7 +40,6 @@ public class ProfileSettingsActivity extends AppCompatActivity {
 
         btnLogout = findViewById(R.id.logOutButton);
         btnSaveChanges = findViewById(R.id.saveButton);
-        etUsername = findViewById(R.id.editUsername);
         etEmail = findViewById(R.id.editEmail);
         etPassword = findViewById(R.id.editPassword);
         etAddress = findViewById(R.id.editAddress);
@@ -52,7 +51,6 @@ public class ProfileSettingsActivity extends AppCompatActivity {
 
 
         if (currentUser != null) {
-            etUsername.setText(currentUser.getUsername());
             etEmail.setText(currentUser.getEmail());
             etPassword.setText(currentUser.getPassword());
             etAddress.setText(currentUser.getAddress());
@@ -107,25 +105,27 @@ public class ProfileSettingsActivity extends AppCompatActivity {
         btnSaveChanges.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String username = etUsername.getText().toString();
                 String email = etEmail.getText().toString();
                 String password = etPassword.getText().toString();
                 String address = etAddress.getText().toString();
 
-                if (!username.isEmpty() && !email.isEmpty() && !password.isEmpty() && !address.isEmpty()) {
+                if (!email.isEmpty() && !password.isEmpty()) {
                     UserManager userManager = UserManager.getInstance(getApplicationContext());
-                    currentUser.setUsername(username);
-                    currentUser.setEmail(email);
-                    currentUser.setPassword(password);
-                    currentUser.setAddress(address);
 
-                    // Set the profile picture before updating the user
-                    currentUser.setProfilePicture(selectedProfilePictureId);
+                    // Check if the email already exists and it's not the current user's email
+                    if (userManager.isEmailExists(email) && !email.equals(currentUser.getEmail())) {
+                        Toast.makeText(ProfileSettingsActivity.this, "Email already exists. Please use a different one.", Toast.LENGTH_SHORT).show();
+                    } else {
+                        currentUser.setEmail(email);
+                        currentUser.setPassword(password);
+                        currentUser.setAddress(address);
+                        currentUser.setProfilePicture(selectedProfilePictureId);
 
-                    userManager.updateUser(currentUser);
-                    Toast.makeText(ProfileSettingsActivity.this, "Profile updated successfully.", Toast.LENGTH_SHORT).show();
+                        userManager.updateUser(currentUser);
+                        Toast.makeText(ProfileSettingsActivity.this, "Profile updated successfully.", Toast.LENGTH_SHORT).show();
+                    }
                 } else {
-                    Toast.makeText(ProfileSettingsActivity.this, "Please fill in all fields.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ProfileSettingsActivity.this, "Please fill in at least email and password.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
