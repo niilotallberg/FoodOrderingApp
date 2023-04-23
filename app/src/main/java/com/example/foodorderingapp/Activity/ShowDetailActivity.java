@@ -113,7 +113,6 @@ public class ShowDetailActivity extends AppCompatActivity {
             }
         });
 
-        // Check if the item is already in the user's favorites
         User currentUser = UserAuthenticator.getInstance().getAuthenticatedUser();
         if (currentUser.getFavoriteFoods() != null) {
             for (FoodDomain food : currentUser.getFavoriteFoods()) {

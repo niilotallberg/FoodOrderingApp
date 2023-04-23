@@ -34,11 +34,9 @@ public class CartListActivity extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
     private RecyclerView recyclerViewList;
     private TextView txtTotalPricePrice, txtTaxPrice, txtDeliveryFeePrice, txtTotalItemsPrice, txtEmptyCart, btnCheckout;
-
     private double tax;
     private ScrollView svCart;
     private CartManager cartManager;
-
     private UserManager userManager;
 
     @Override

@@ -5,6 +5,7 @@
 
 package com.example.foodorderingapp.Adaptor;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,6 +35,7 @@ public class PopularAdaptor extends RecyclerView.Adapter<PopularAdaptor.ViewHold
         return new ViewHolder(inflate);
     }
 
+    @SuppressLint("RecyclerView")
     @Override
     public void onBindViewHolder(@NonNull PopularAdaptor.ViewHolder holder, int position) {
         holder.title.setText(PopularFood.get(position).getTitle());

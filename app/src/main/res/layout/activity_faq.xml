@@ -24,10 +24,12 @@
         <TextView
             android:id="@+id/answer1"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:background="#4B03A9F4"
             android:paddingStart="5dp"
+            android:paddingTop="10dp"
             android:paddingEnd="5dp"
+            android:paddingBottom="10dp"
             android:text="You can order from our restaurant application on weekdays and weekends between 12 pm and 11 pm."
             android:textSize="16sp" />
 
@@ -45,10 +47,12 @@
         <TextView
             android:id="@+id/answer2"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:background="#B4E5FC"
             android:paddingStart="5dp"
+            android:paddingTop="10dp"
             android:paddingEnd="5dp"
+            android:paddingBottom="10dp"
             android:text="At the moment, we only accept bank card payments."
             android:textSize="16sp" />
 
@@ -65,10 +69,12 @@
         <TextView
             android:id="@+id/answer3"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:background="#B4E5FC"
             android:paddingStart="5dp"
+            android:paddingTop="10dp"
             android:paddingEnd="5dp"
+            android:paddingBottom="10dp"
             android:text="We prefer low-emission transportation solutions for deliveries."
             android:textSize="16sp" />
 
@@ -85,10 +91,12 @@
         <TextView
             android:id="@+id/answer4"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:background="#B4E5FC"
             android:paddingStart="5dp"
+            android:paddingTop="10dp"
             android:paddingEnd="5dp"
+            android:paddingBottom="10dp"
             android:text="You can change your password in profile section."
             android:textSize="16sp" />
 

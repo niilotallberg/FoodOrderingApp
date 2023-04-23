@@ -62,7 +62,6 @@ public class LoginActivity extends AppCompatActivity {
                     UserAuthenticator userAuthenticator = UserAuthenticator.getInstance();
                     userAuthenticator.setAuthenticatedUser(user);
 
-                    // Load the user's favorites and set them to the User object
                     FavoritesManager favoritesManager = FavoritesManager.getInstance(getApplicationContext());
                     user.setFavoriteFoods(favoritesManager.loadFavorites(user));
 

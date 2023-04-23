@@ -78,9 +78,9 @@ public class CartListAdapter extends RecyclerView.Adapter<CartListAdapter.ViewHo
                     return;
                 }
 
-                cartManager.removeCartItem(context, foodDomain); // Remove the item from the cartManager
+                cartManager.removeCartItem(context, foodDomain);
                 changeNumberItemsListener.changed();
-                notifyDataSetChanged(); // Update the list
+                notifyDataSetChanged();
             }
         });
     }
