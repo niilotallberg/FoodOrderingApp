@@ -56,7 +56,7 @@ public class OrderConfirmationActivity extends AppCompatActivity {
                 } else if (btnPickup.isChecked()) {
                     intent.putExtra("orderStatus", "You can pickup your order in");
                 }
-                intent.putExtra("fromOrderConfirmation", true); // Add extra to indicate that the user is coming from OrderConfirmation
+                intent.putExtra("fromOrderConfirmation", true);
                 startActivity(intent);
             }
         });
@@ -68,10 +68,10 @@ public class OrderConfirmationActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == 1 && resultCode == RESULT_OK) {
-            String name = data.getStringExtra("name");
-            String code = data.getStringExtra("code");
-            String expiring = data.getStringExtra("expiring");
-            String safety = data.getStringExtra("safety");
+            String name = data.getStringExtra("name on card");
+            String code = data.getStringExtra("card number");
+            String expiring = data.getStringExtra("expiring date");
+            String safety = data.getStringExtra("safety number");
 
             codes.add(name + ": " + code + ": " + expiring + ": " + safety );
             updateTWcodes();

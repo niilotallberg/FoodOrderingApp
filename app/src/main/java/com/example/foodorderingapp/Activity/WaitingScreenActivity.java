@@ -24,8 +24,8 @@ import java.util.concurrent.TimeUnit;
 public class WaitingScreenActivity extends AppCompatActivity {
 
     private TextView twCountdown;
-
-
+    private Button btnHome;
+    private Button submitButton;
     private RatingBar rbRatingbar;
     private CountDownTimer countDownTimer;
     private long timeLeftInMillis;
@@ -39,11 +39,27 @@ public class WaitingScreenActivity extends AppCompatActivity {
 
         rbRatingbar = findViewById(R.id.rbRatingbar);
 
+        btnHome = findViewById(R.id.btnHome);
+
+        submitButton = findViewById(R.id.submitButton);
+
         startTimer();
 
-    }
+        btnHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(WaitingScreenActivity.this, HomePageActivity.class);
+                startActivity(intent);
+            }
+        });
 
-        // Check if the user came from the OrderConfirmation activity
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                submitStars(view);
+            }
+        });
+    }
 
 
     public void submitStars(View view){
@@ -67,7 +83,7 @@ public class WaitingScreenActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                twCountdown.setText("Tilauksesi pitäisi saapua näillä minuuteilla");
+                twCountdown.setText("Your order should be ready soon");
 
             }
         }.start();

@@ -15,27 +15,23 @@ import com.example.foodorderingapp.R;
 
 public class FaqActivity extends AppCompatActivity {
 
-    private TextView answer1, answer2, answer3, answer4; // Answer text fields
+    private TextView answer1, answer2, answer3, answer4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_faq);
 
-        // Find the answer text fields in the layout file
         answer1 = findViewById(R.id.answer1);
         answer2 = findViewById(R.id.answer2);
         answer3 = findViewById(R.id.answer3);
         answer4 = findViewById(R.id.answer4);
 
-        // Hide the answer text fields initially
         answer1.setVisibility(View.GONE);
         answer2.setVisibility(View.GONE);
         answer3.setVisibility(View.GONE);
         answer4.setVisibility(View.GONE);
 
-
-        // Set the click events of the question boxes
         TextView question1 = findViewById(R.id.question1);
         question1.setOnClickListener(new View.OnClickListener() {
             @Override
