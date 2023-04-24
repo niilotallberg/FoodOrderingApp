@@ -56,7 +56,7 @@ public class OrderConfirmationActivity extends AppCompatActivity {
                 } else if (btnPickup.isChecked()) {
                     intent.putExtra("orderStatus", "You can pickup your order in");
                 }
-                intent.putExtra("fromOrderConfirmation", true); // Add extra to indicate that the user is coming from OrderConfirmation
+                intent.putExtra("fromOrderConfirmation", true);
                 startActivity(intent);
             }
         });
