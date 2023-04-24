@@ -23,10 +23,10 @@ import java.util.concurrent.TimeUnit;
 
 public class WaitingScreenActivity extends AppCompatActivity {
 
-    private TextView textViewCountdown;
-    private Button buttonStart;
+    private TextView twCountdown;
 
-    private RatingBar rb_ratingbar;
+
+    private RatingBar rbRatingbar;
     private CountDownTimer countDownTimer;
     private long timeLeftInMillis;
 
@@ -35,29 +35,19 @@ public class WaitingScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_waiting_screen);
 
-        textViewCountdown = findViewById(R.id.text_view_countdown);
-        buttonStart = findViewById(R.id.button_start);
-        rb_ratingbar= findViewById(R.id.rb_ratingbar);
+        twCountdown = findViewById(R.id.twCountdown);
 
-        // Check if the user came from the OrderConfirmation activity
-        Intent intent = getIntent();
-        if (intent != null && intent.hasExtra("fromOrderConfirmation")) {
-            // Start the timer
-            startTimer();
-        } else {
-            buttonStart.setVisibility(View.INVISIBLE);
-        }
+        rbRatingbar = findViewById(R.id.rbRatingbar);
 
-        buttonStart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startTimer();
-            }
-        });
+        startTimer();
+
     }
 
+        // Check if the user came from the OrderConfirmation activity
+
+
     public void submitStars(View view){
-        float rating = rb_ratingbar.getRating();
+        float rating = rbRatingbar.getRating();
         String message = "Rating: " + rating;
         Toast.makeText(this, message,Toast.LENGTH_SHORT).show();
     }
@@ -77,12 +67,12 @@ public class WaitingScreenActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                textViewCountdown.setText("Tilauksesi pitäisi saapua näillä minuuteilla");
+                twCountdown.setText("Tilauksesi pitäisi saapua näillä minuuteilla");
 
             }
         }.start();
 
-        buttonStart.setVisibility(View.INVISIBLE);
+
     }
 
     private void updateCountdownText() {
@@ -90,7 +80,7 @@ public class WaitingScreenActivity extends AppCompatActivity {
         int seconds = (int) (timeLeftInMillis / 1000) % 60;
 
         String timeLeftFormatted = String.format("%02d:%02d", minutes, seconds);
-        textViewCountdown.setText(timeLeftFormatted);
+        twCountdown.setText(timeLeftFormatted);
     }
 
     @Override

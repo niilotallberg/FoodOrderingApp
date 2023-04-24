@@ -7,7 +7,7 @@
     tools:context=".OrderConfirmation">
 
     <Button
-        android:id="@+id/button_start"
+        android:id="@+id/btnStart"
         android:layout_width="8dp"
         android:layout_height="27dp"
         android:layout_centerInParent="true"
@@ -20,10 +20,10 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
-        android:id="@+id/text_view_countdown"
+        android:id="@+id/twCountdown"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/button_start"
+        android:layout_below="@id/btnStart"
         android:layout_centerHorizontal="true"
         android:text="00:00"
         android:textSize="48sp"
@@ -73,7 +73,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <RatingBar
-        android:id="@+id/rb_ratingbar"
+        android:id="@+id/rbRatingbar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="80dp"

@@ -31,12 +31,14 @@
             android:layout_width="307dp"
             android:layout_height="57dp"
             android:layout_marginBottom="16dp"
+            android:background="#00BCD4"
             android:text="Checkout"
-            android:textColor="#F1EBEB"
+            android:textColor="#0B0A0A"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.423"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:rippleColor="#00BCD4" />
 
         <TextView
             android:id="@+id/textView4"

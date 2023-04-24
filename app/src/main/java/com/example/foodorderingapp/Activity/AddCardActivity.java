@@ -24,6 +24,9 @@ public class AddCardActivity extends AppCompatActivity {
 
     private EditText etSafetyNumber;
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
