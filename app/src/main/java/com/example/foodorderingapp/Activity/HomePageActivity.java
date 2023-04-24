@@ -62,6 +62,11 @@ public class HomePageActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(this, "You can't go back, please place your order or logout from profile settings", Toast.LENGTH_SHORT).show();
+    }
+
     private void bottomNavigation() {
         FloatingActionButton floatingActionButton = findViewById(R.id.btnCartView);
         LinearLayout homeBtn = findViewById(R.id.homeBtn);

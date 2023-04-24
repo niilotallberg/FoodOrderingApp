@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.foodorderingapp.Manager.CartManager;
 import com.example.foodorderingapp.R;
 
 import java.util.ArrayList;
@@ -24,6 +25,7 @@ public class OrderConfirmationActivity extends AppCompatActivity {
 
     private CheckBox btnOnTheWay, btnPickup;
 
+    private boolean backButtonPressed = false;
 
     private ArrayList<String> codes;
 
@@ -50,6 +52,9 @@ public class OrderConfirmationActivity extends AppCompatActivity {
         btnConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                CartManager cartManager = CartManager.getInstance();
+                cartManager.clearCart(OrderConfirmationActivity.this);
+
                 Intent intent = new Intent(OrderConfirmationActivity.this, WaitingScreenActivity.class);
                 if (btnOnTheWay.isChecked()) {
                     intent.putExtra("orderStatus", "Your order is on the way");
@@ -57,6 +62,7 @@ public class OrderConfirmationActivity extends AppCompatActivity {
                     intent.putExtra("orderStatus", "You can pickup your order in");
                 }
                 intent.putExtra("fromOrderConfirmation", true);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }
         });

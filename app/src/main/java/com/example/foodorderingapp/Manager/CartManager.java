@@ -91,4 +91,9 @@ public class CartManager {
     }
 
     private CartManager() {}
+
+    public void clearCart(Context context) {
+        cart.clear();
+        saveCart(context);
+    }
 }

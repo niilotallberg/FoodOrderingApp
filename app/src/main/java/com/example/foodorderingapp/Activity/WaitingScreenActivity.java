@@ -61,6 +61,11 @@ public class WaitingScreenActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(this, "You can't go back, please return to main menu", Toast.LENGTH_SHORT).show();
+    }
+
     public void submitStars(View view){
         float rating = rbRatingbar.getRating();
         String message = "Rating: " + rating;

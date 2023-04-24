@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
     android:backgroundTint="#931C1C"
     tools:context=".Activity.OrderConfirmationActivity">
 
@@ -32,8 +34,8 @@
             android:layout_width="307dp"
             android:layout_height="57dp"
             android:layout_marginBottom="16dp"
-            android:text="Checkout"
             android:backgroundTint="#F4511E"
+            android:text="Checkout"
             android:textColor="#0B0A0A"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -57,8 +59,8 @@
             android:id="@+id/btnAddCard"
             android:layout_width="411dp"
             android:layout_height="69dp"
-            android:text="Add new Card"
             android:backgroundTint="#F4511E"
+            android:text="Add new Card"
             app:layout_constraintBottom_toTopOf="@+id/twCode"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
