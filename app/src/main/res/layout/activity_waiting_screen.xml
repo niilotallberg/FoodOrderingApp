@@ -87,10 +87,11 @@
         android:layout_width="147dp"
         android:layout_height="49dp"
         android:layout_marginBottom="16dp"
+        android:background="#B11E1E"
         android:text="Submit your rating"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.075"
+        app:layout_constraintHorizontal_bias="0.071"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView

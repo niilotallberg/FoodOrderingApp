@@ -19,27 +19,27 @@ import com.example.foodorderingapp.R;
 import java.util.ArrayList;
 
 public class OrderConfirmationActivity extends AppCompatActivity {
-    private Button addCardButton,btnConfirm1;
-    private TextView tunnusluvutTextView ;
+    private Button btnAddCard, btnConfirm;
+    private TextView twCode;
 
-    private CheckBox onTheWayRadioButton, pickupRadioButton;
+    private CheckBox btnOnTheWay, btnPickup;
 
 
-    private ArrayList<String> tunnusluvut;
+    private ArrayList<String> codes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_confirmation);
 
-        addCardButton = findViewById(R.id.add_card_button);
-        btnConfirm1 = findViewById(R.id.btnConfirm);
-        tunnusluvutTextView = findViewById(R.id.tunnuslukutxt);
-        onTheWayRadioButton = findViewById(R.id.delivery_button);
-        pickupRadioButton = findViewById(R.id.pickup_button);
-        tunnusluvut = new ArrayList<>();
+        btnAddCard = findViewById(R.id.btnAddCard);
+        btnConfirm = findViewById(R.id.btnConfirm);
+        twCode = findViewById(R.id.twCode);
+        btnOnTheWay = findViewById(R.id.btnOnTheWay);
+        btnPickup = findViewById(R.id.btnPickup);
+        codes = new ArrayList<>();
 
-        addCardButton.setOnClickListener(new View.OnClickListener() {
+        btnAddCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(OrderConfirmationActivity.this, AddCardActivity.class);
@@ -47,13 +47,13 @@ public class OrderConfirmationActivity extends AppCompatActivity {
             }
         });
 
-        btnConfirm1.setOnClickListener(new View.OnClickListener() {
+        btnConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(OrderConfirmationActivity.this, WaitingScreenActivity.class);
-                if (onTheWayRadioButton.isChecked()) {
+                if (btnOnTheWay.isChecked()) {
                     intent.putExtra("orderStatus", "Your order is on the way");
-                } else if (pickupRadioButton.isChecked()) {
+                } else if (btnPickup.isChecked()) {
                     intent.putExtra("orderStatus", "You can pickup your order in");
                 }
                 intent.putExtra("fromOrderConfirmation", true); // Add extra to indicate that the user is coming from OrderConfirmation
@@ -68,24 +68,24 @@ public class OrderConfirmationActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == 1 && resultCode == RESULT_OK) {
-            String nimi = data.getStringExtra("nimi");
-            String tunnusluku = data.getStringExtra("tunnusluku");
+            String name = data.getStringExtra("name");
+            String code = data.getStringExtra("code");
             String expiring = data.getStringExtra("expiring");
             String safety = data.getStringExtra("safety");
 
-            tunnusluvut.add(nimi + ": " + tunnusluku + ": " + expiring + ": " + safety );
-            updateTunnuslukuvutTextView();
+            codes.add(name + ": " + code + ": " + expiring + ": " + safety );
+            updateTWcodes();
         }
     }
 
-    private void updateTunnuslukuvutTextView() {
+    private void updateTWcodes() {
         StringBuilder builder = new StringBuilder();
 
-        for (String tunnusluku : tunnusluvut) {
-            builder.append(tunnusluku).append("\n");
+        for (String code : codes) {
+            builder.append(code).append("\n");
         }
 
-        tunnusluvutTextView.setText(builder.toString());
+        twCode.setText(builder.toString());
     }
 
 }

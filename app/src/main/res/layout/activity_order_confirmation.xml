@@ -18,7 +18,7 @@
             tools:layout_editor_absoluteX="2dp" />
 
         <RadioButton
-            android:id="@+id/tunnuslukutxt"
+            android:id="@+id/twCode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="monospace"
@@ -53,17 +53,17 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/add_card_button"
+            android:id="@+id/btnAddCard"
             android:layout_width="411dp"
             android:layout_height="69dp"
             android:text="Add new Card"
-            app:layout_constraintBottom_toTopOf="@+id/tunnuslukutxt"
+            app:layout_constraintBottom_toTopOf="@+id/twCode"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent" />
 
         <CheckBox
-            android:id="@+id/delivery_button"
+            android:id="@+id/btnOnTheWay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="136dp"
@@ -73,12 +73,12 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <CheckBox
-            android:id="@+id/pickup_button"
+            android:id="@+id/btnPickup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="136dp"
             android:text="Pickup"
-            app:layout_constraintEnd_toStartOf="@+id/delivery_button"
+            app:layout_constraintEnd_toStartOf="@+id/btnOnTheWay"
             app:layout_constraintHorizontal_bias="0.503"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
