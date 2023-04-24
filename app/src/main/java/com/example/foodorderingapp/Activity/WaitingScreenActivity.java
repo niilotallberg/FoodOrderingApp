@@ -61,7 +61,6 @@ public class WaitingScreenActivity extends AppCompatActivity {
         });
     }
 
-
     public void submitStars(View view){
         float rating = rbRatingbar.getRating();
         String message = "Rating: " + rating;
