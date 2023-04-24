@@ -25,8 +25,6 @@ public class AddCardActivity extends AppCompatActivity {
     private EditText etSafetyNumber;
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,31 +32,29 @@ public class AddCardActivity extends AppCompatActivity {
 
         etCardNumber = findViewById(R.id.etCardNumber);
         etNameOnCard = findViewById(R.id.etNameOnCard);
-        etExpiringDate = findViewById(R.id.expiring_edit_text);
-        etSafetyNumber = findViewById(R.id.safety_edit_text);
+        etExpiringDate = findViewById(R.id.etExpiringDate);
+        etSafetyNumber = findViewById(R.id.etSafetyNumber);
 
-        Button tallennaButton = findViewById(R.id.tallenna_button);
-        tallennaButton.setOnClickListener(new View.OnClickListener() {
+        Button btnSave = findViewById(R.id.btnSave);
+        btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tallennaTunnusluku();
+                saveCard();
             }
         });
     }
 
-    private void tallennaTunnusluku() {
-        String tunnuslukuString = etCardNumber.getText().toString();
-        String nimiString = etNameOnCard.getText().toString();
-        String expiringString = etExpiringDate.getText().toString();
-        String safetyString = etSafetyNumber.getText().toString();
-
-        // Tallenna tunnusluku ja nimi tietokantaan tai muuhun tallennuspaikkaan tässä
+    private void saveCard() {
+        String cardNumber = etCardNumber.getText().toString();
+        String nameOnCard = etNameOnCard.getText().toString();
+        String expiringDate = etExpiringDate.getText().toString();
+        String safetyNumber = etSafetyNumber.getText().toString();
 
         Intent intent = new Intent();
-        intent.putExtra("tunnusluku", tunnuslukuString);
-        intent.putExtra("nimi", nimiString);
-        intent.putExtra("expiring", expiringString);
-        intent.putExtra("safety", safetyString);
+        intent.putExtra("card number", cardNumber);
+        intent.putExtra("name on card", nameOnCard);
+        intent.putExtra("expiring date", expiringDate);
+        intent.putExtra("safety number", safetyNumber);
         setResult(RESULT_OK, intent);
         finish();
     }
