@@ -43,7 +43,7 @@ public class OrderConfirmationActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(OrderConfirmationActivity.this, AddCardActivity.class);
-                startActivityForResult(intent,1);
+                 startActivityForResult(intent,1);
             }
         });
 

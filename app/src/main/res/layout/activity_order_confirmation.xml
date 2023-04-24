@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".OrderConfirmation">
+    tools:context=".Activity.OrderConfirmationActivity">
 
 
         <RadioButton
@@ -31,7 +31,7 @@
             android:layout_width="307dp"
             android:layout_height="57dp"
             android:layout_marginBottom="16dp"
-            android:background="#00BCD4"
+            android:background="#168593"
             android:text="Checkout"
             android:textColor="#0B0A0A"
             app:layout_constraintBottom_toBottomOf="parent"
