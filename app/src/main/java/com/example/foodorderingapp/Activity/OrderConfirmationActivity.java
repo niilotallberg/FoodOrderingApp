@@ -73,11 +73,11 @@ public class OrderConfirmationActivity extends AppCompatActivity {
             String safety = data.getStringExtra("safety number");
 
             codes.add(name + ": " + code + ": " + expiring + ": " + safety );
-            updateTWcodes();
+            updateNewCard();
         }
     }
 
-    private void updateTWcodes() {
+    private void updateNewCard() {
         StringBuilder builder = new StringBuilder();
 
         for (String code : codes) {
