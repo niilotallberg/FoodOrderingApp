@@ -1,8 +1,3 @@
-// Ohjelman koodaamisessa käytetty apuna seuraavia lähteitä:
-// https://www.youtube.com/watch?v=9nWcPPHBzMk
-// https://www.youtube.com/watch?v=BLfqZlUI_MM&t=122s
-// https://www.youtube.com/watch?v=9CkpMm-n5iA
-
 package com.example.foodorderingapp.Activity;
 
 import android.content.Intent;
@@ -14,15 +9,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.foodorderingapp.Manager.CartManager;
 import com.example.foodorderingapp.R;
-import java.util.ArrayList;
 
 public class OrderConfirmationActivity extends AppCompatActivity {
     private Button btnAddCard, btnConfirm;
     private TextView twCode;
     private CheckBox btnOnTheWay, btnPickup;
-    private ArrayList<String> codes;
+    private String name, code, expiring, safety;
+    private boolean cardAdded = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,13 +30,18 @@ public class OrderConfirmationActivity extends AppCompatActivity {
         twCode = findViewById(R.id.twCode);
         btnOnTheWay = findViewById(R.id.btnOnTheWay);
         btnPickup = findViewById(R.id.btnPickup);
-        codes = new ArrayList<>();
 
         btnAddCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(OrderConfirmationActivity.this, AddCardActivity.class);
-                 startActivityForResult(intent,1);
+                if (cardAdded) {
+                    intent.putExtra("name on card", name);
+                    intent.putExtra("card number", code);
+                    intent.putExtra("expiring date", expiring);
+                    intent.putExtra("safety number", safety);
+                }
+                startActivityForResult(intent, 1);
             }
         });
 
@@ -73,8 +74,6 @@ public class OrderConfirmationActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
     }
 
     @Override
@@ -82,24 +81,16 @@ public class OrderConfirmationActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == 1 && resultCode == RESULT_OK) {
-            String name = data.getStringExtra("name on card");
-            String code = data.getStringExtra("card number");
-            String expiring = data.getStringExtra("expiring date");
-            String safety = data.getStringExtra("safety number");
-
-            codes.add(name + ": " + code + ": " + expiring + ": " + safety );
+            name = data.getStringExtra("name on card");
+            code = data.getStringExtra("card number");
+            expiring = data.getStringExtra("expiring date");
+            safety = data.getStringExtra("safety number");
+            cardAdded = true;
             updateNewCard();
         }
     }
 
     private void updateNewCard() {
-        StringBuilder builder = new StringBuilder();
-
-        for (String code : codes) {
-            builder.append(code).append("\n");
-        }
-
-        twCode.setText(builder.toString());
+        twCode.setText(name + ": " + code + ": " + expiring + ": " + safety);
     }
-
 }
