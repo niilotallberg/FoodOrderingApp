@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.foodorderingapp.Manager.CartManager;
 import com.example.foodorderingapp.R;
@@ -48,6 +50,18 @@ public class OrderConfirmationActivity extends AppCompatActivity {
                 CartManager cartManager = CartManager.getInstance();
                 cartManager.clearCart(OrderConfirmationActivity.this);
 
+                if (!btnOnTheWay.isChecked() && !btnPickup.isChecked()) {
+                    // If neither button is selected, an error message is displayed.
+                    Toast.makeText(OrderConfirmationActivity.this, "Please select a delivery method", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (btnOnTheWay.isChecked() && btnPickup.isChecked()) {
+                    // If both buttons are selected, an error message is displayed.
+                    Toast.makeText(OrderConfirmationActivity.this, "Please select only one delivery method", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 Intent intent = new Intent(OrderConfirmationActivity.this, WaitingScreenActivity.class);
                 if (btnOnTheWay.isChecked()) {
                     intent.putExtra("orderStatus", "Your order is on the way");
@@ -59,6 +73,7 @@ public class OrderConfirmationActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
 
     }
 

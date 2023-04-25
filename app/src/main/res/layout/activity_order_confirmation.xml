@@ -10,25 +10,6 @@
     tools:context=".Activity.OrderConfirmationActivity">
 
 
-        <RadioButton
-            android:id="@+id/radioButton2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="200dp"
-            android:fontFamily="monospace"
-            android:text="Visa Electron : 3456 **** : 25/07 : 324"
-            app:layout_constraintBottom_toBottomOf="parent"
-            tools:layout_editor_absoluteX="2dp" />
-
-        <RadioButton
-            android:id="@+id/twCode"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="monospace"
-            android:text="New Card"
-            app:layout_constraintBottom_toTopOf="@+id/radioButton2"
-            tools:layout_editor_absoluteX="0dp" />
-
         <Button
             android:id="@+id/btnConfirm"
             android:layout_width="307dp"
@@ -59,9 +40,10 @@
             android:id="@+id/btnAddCard"
             android:layout_width="411dp"
             android:layout_height="69dp"
+            android:layout_marginBottom="320dp"
             android:backgroundTint="#F4511E"
             android:text="Add new Card"
-            app:layout_constraintBottom_toTopOf="@+id/twCode"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent" />
@@ -87,15 +69,37 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <RadioButton
-            android:id="@+id/radioButton"
-            android:layout_width="match_parent"
+        <RadioGroup
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="60dp"
-            android:fontFamily="monospace"
-            android:text="American Express 9543 **** : 11/02 : 696"
-            app:layout_constraintBottom_toTopOf="@+id/btnConfirm"
-            tools:layout_editor_absoluteX="0dp" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.779">
+
+                <RadioButton
+                    android:id="@+id/twCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="monospace"
+                    android:text="New Card" />
+
+                <RadioButton
+                    android:id="@+id/radioButton2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="monospace"
+                    android:text="Visa Electron : 3456 **** : 25/07 : 324" />
+
+                <RadioButton
+                    android:id="@+id/radioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="60dp"
+                    android:fontFamily="monospace"
+                    android:text="American Express 9543 **** : 11/02 : 696" />
+        </RadioGroup>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
