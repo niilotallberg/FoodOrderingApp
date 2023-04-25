@@ -24,7 +24,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
 
     public interface OnItemClickListener {
         void onItemClick(int position);
-    } // TODO IS THIS OK?
+    }
 
     public CategoryAdapter(ArrayList<CategoryDomain> categoryDomains, OnItemClickListener onItemClickListener) {
         this.categoryDomains = categoryDomains;
