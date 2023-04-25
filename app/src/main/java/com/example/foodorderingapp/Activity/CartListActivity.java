@@ -8,14 +8,12 @@ package com.example.foodorderingapp.Activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
-
 import com.example.foodorderingapp.Adapter.CartListAdapter;
 import com.example.foodorderingapp.General.FoodDomain;
 import com.example.foodorderingapp.General.User;
@@ -24,7 +22,6 @@ import com.example.foodorderingapp.R;
 import com.example.foodorderingapp.Manager.CartManager;
 import com.example.foodorderingapp.Interface.ChangeNumberItemsListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
 import java.util.HashMap;
 import java.util.Map;
 

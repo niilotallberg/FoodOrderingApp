@@ -6,9 +6,7 @@
 package com.example.foodorderingapp.Data;
 
 import android.content.Context;
-
 import com.example.foodorderingapp.General.FoodDomain;
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;

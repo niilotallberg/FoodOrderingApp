@@ -6,14 +6,12 @@
 package com.example.foodorderingapp.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
-
 import com.example.foodorderingapp.General.User;
 import com.example.foodorderingapp.Helpers.UserAuthenticator;
 import com.example.foodorderingapp.Manager.UserManager;
@@ -26,9 +24,7 @@ public class ProfileSettingsActivity extends AppCompatActivity {
     private Button btnSaveChanges;
     private TextInputEditText etEmail, etPassword, etAddress;
     private ImageView ivProfileImageOption1, ivProfileImageOption2, ivProfileImageOption3, ivProfileImageOption4;
-
     private int selectedProfilePictureId;
-
     private ImageView ivCurrentProfilePicture;
 
     @Override

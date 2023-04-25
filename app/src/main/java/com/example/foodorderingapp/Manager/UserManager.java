@@ -6,13 +6,10 @@
 package com.example.foodorderingapp.Manager;
 
 import android.content.Context;
-
 import com.example.foodorderingapp.Data.Serializer;
 import com.example.foodorderingapp.General.User;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public class UserManager {
     private static final String USERS_FILE = "users.ser";

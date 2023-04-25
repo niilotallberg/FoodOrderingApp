@@ -6,7 +6,6 @@
 package com.example.foodorderingapp.Manager;
 
 import android.content.Context;
-
 import com.example.foodorderingapp.Data.Serializer;
 import com.example.foodorderingapp.General.FoodDomain;
 import com.example.foodorderingapp.General.User;

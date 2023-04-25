@@ -8,7 +8,6 @@ package com.example.foodorderingapp.Activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -16,7 +15,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.foodorderingapp.Adapter.CategoryAdapter;
 import com.example.foodorderingapp.Adapter.PopularAdapter;
 import com.example.foodorderingapp.General.CategoryDomain;
@@ -25,7 +23,6 @@ import com.example.foodorderingapp.General.User;
 import com.example.foodorderingapp.Helpers.UserAuthenticator;
 import com.example.foodorderingapp.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
 import java.util.ArrayList;
 
 public class HomePageActivity extends AppCompatActivity {

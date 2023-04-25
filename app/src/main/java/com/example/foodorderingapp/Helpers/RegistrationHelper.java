@@ -6,7 +6,6 @@
 package com.example.foodorderingapp.Helpers;
 
 import com.example.foodorderingapp.Manager.UserManager;
-
 import java.util.regex.Pattern;
 
 public class RegistrationHelper {

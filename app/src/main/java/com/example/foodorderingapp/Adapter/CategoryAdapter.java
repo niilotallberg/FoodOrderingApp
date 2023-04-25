@@ -10,15 +10,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.foodorderingapp.General.CategoryDomain;
 import com.example.foodorderingapp.R;
-
 import java.util.ArrayList;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder> {
@@ -27,7 +24,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
 
     public interface OnItemClickListener {
         void onItemClick(int position);
-    }
+    } // TODO IS THIS OK?
 
     public CategoryAdapter(ArrayList<CategoryDomain> categoryDomains, OnItemClickListener onItemClickListener) {
         this.categoryDomains = categoryDomains;

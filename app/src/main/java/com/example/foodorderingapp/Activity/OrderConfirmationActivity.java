@@ -11,22 +11,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.foodorderingapp.Manager.CartManager;
 import com.example.foodorderingapp.R;
-
 import java.util.ArrayList;
 
 public class OrderConfirmationActivity extends AppCompatActivity {
     private Button btnAddCard, btnConfirm;
     private TextView twCode;
-
     private CheckBox btnOnTheWay, btnPickup;
-
-    private boolean backButtonPressed = false;
-
     private ArrayList<String> codes;
 
     @Override

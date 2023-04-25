@@ -6,7 +6,6 @@
 package com.example.foodorderingapp.General;
 
 import com.example.foodorderingapp.R;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 

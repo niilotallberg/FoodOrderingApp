@@ -10,18 +10,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.foodorderingapp.R;
 
 public class AddCardActivity extends AppCompatActivity {
 
     private EditText etCardNumber;
     private EditText etNameOnCard;
-
     private EditText etExpiringDate;
-
     private EditText etSafetyNumber;
 
 
