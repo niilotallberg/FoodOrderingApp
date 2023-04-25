@@ -18,6 +18,8 @@ public class CartManager {
     private User cartOwner;
     private static CartManager instance;
 
+    private CartManager() {}
+
     public static CartManager getInstance() {
         if (instance == null) {
             instance = new CartManager();
@@ -85,8 +87,6 @@ public class CartManager {
     public User getCartOwner() {
         return cartOwner;
     }
-
-    private CartManager() {}
 
     public void clearCart(Context context) {
         cart.clear();

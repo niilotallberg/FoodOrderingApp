@@ -34,15 +34,16 @@ public class UserManager {
         Serializer.serializeObject((ArrayList<User>) users, context, USERS_FILE);
     }
 
+    public void initializeUsers(Context context) {
+        users = loadUsers(context);
+    }
+
     public List<User> loadUsers(Context context) {
         List<User> loadedUsers = Serializer.deserializeObject(context, USERS_FILE);
         if (loadedUsers == null) {
             return new ArrayList<>();
         }
         return loadedUsers;
-    }
-    public void initializeUsers(Context context) {
-        users = loadUsers(context);
     }
 
     public void addUser(Context context, User user) {
