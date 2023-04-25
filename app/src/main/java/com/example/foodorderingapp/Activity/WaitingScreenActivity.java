@@ -68,7 +68,7 @@ public class WaitingScreenActivity extends AppCompatActivity {
 
     public void submitStars(View view){
         float rating = rbRatingbar.getRating();
-        String message = "Rating: " + rating;
+        String message = rating + "/5 stars. " + "Thanks for the rating! ";
         Toast.makeText(this, message,Toast.LENGTH_SHORT).show();
     }
 

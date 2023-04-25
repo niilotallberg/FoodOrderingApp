@@ -110,7 +110,7 @@ public class ProfileSettingsActivity extends AppCompatActivity {
                 String address = etAddress.getText().toString();
 
                 if (!email.isEmpty() && !password.isEmpty()) {
-                    UserManager userManager = UserManager.getInstance(getApplicationContext());
+                    UserManager userManager = UserManager.getInstance();
 
                     // Check if the email already exists and it's not the current user's email
                     if (userManager.isEmailExists(email) && !email.equals(currentUser.getEmail())) {
@@ -121,7 +121,7 @@ public class ProfileSettingsActivity extends AppCompatActivity {
                         currentUser.setAddress(address);
                         currentUser.setProfilePicture(selectedProfilePictureId);
 
-                        userManager.updateUser(currentUser);
+                        userManager.updateUser(ProfileSettingsActivity.this, currentUser);
                         Toast.makeText(ProfileSettingsActivity.this, "Profile updated successfully.", Toast.LENGTH_SHORT).show();
                     }
                 } else {

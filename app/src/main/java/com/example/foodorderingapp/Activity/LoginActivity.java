@@ -62,8 +62,8 @@ public class LoginActivity extends AppCompatActivity {
                     UserAuthenticator userAuthenticator = UserAuthenticator.getInstance();
                     userAuthenticator.setAuthenticatedUser(user);
 
-                    FavoritesManager favoritesManager = FavoritesManager.getInstance(getApplicationContext());
-                    user.setFavoriteFoods(favoritesManager.loadFavorites(user));
+                    FavoritesManager favoritesManager = FavoritesManager.getInstance();
+                    user.setFavoriteFoods(favoritesManager.loadFavorites(LoginActivity.this, user));
 
                     Intent intent = new Intent(LoginActivity.this, HomePageActivity.class);
                     startActivity(intent);
@@ -85,9 +85,10 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private User login(String email, String password) {
-        UserManager userManager = UserManager.getInstance(getApplicationContext());
-        Optional<User> optionalUser = userManager.getUser(email, password);
-        return optionalUser.orElse(null);
+        UserManager userManager = UserManager.getInstance();
+        userManager.initializeUsers(LoginActivity.this);
+        User user = userManager.getUser(email, password);
+        return user;
     }
 
 }

@@ -39,7 +39,7 @@ public class ShowDetailActivity extends AppCompatActivity {
         btnAddToFavorites.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FavoritesManager favoritesManager = FavoritesManager.getInstance(getApplicationContext());
+                FavoritesManager favoritesManager = FavoritesManager.getInstance();
                 User currentUser = UserAuthenticator.getInstance().getAuthenticatedUser();
 
                 boolean isAlreadyFavorite = false;
@@ -60,7 +60,7 @@ public class ShowDetailActivity extends AppCompatActivity {
                     currentUser.getFavoriteFoods().add(object);
                     object.setIsFavorite(true);
                 }
-                favoritesManager.saveFavorites(currentUser, currentUser.getFavoriteFoods());
+                favoritesManager.saveFavorites(ShowDetailActivity.this, currentUser, currentUser.getFavoriteFoods());
 
                 isFavorite = !isFavorite;
                 updateFavoriteButtonState();

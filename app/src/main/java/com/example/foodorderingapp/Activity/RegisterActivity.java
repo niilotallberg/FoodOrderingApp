@@ -60,7 +60,7 @@ public class RegisterActivity extends AppCompatActivity {
                 String password = etRegisterPassword.getText().toString();
                 String confirm = etConfirmPassword.getText().toString();
 
-                UserManager userManager = UserManager.getInstance(getApplicationContext());
+                UserManager userManager = UserManager.getInstance();
 
                 String errorMessage = RegistrationHelper.checkRegistrationInformation(username, email, password, confirm, userManager);
 
@@ -68,7 +68,7 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_LONG).show();
                 } else {
                     User newUser = new User(username, email, password, "", User.DEFAULT_PROFILE_PICTURE_ID);
-                    userManager.addUser(newUser);
+                    userManager.addUser(RegisterActivity.this, newUser);
 
                     Toast.makeText(getApplicationContext(), "Registration successful", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);

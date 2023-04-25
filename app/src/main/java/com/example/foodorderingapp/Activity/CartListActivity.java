@@ -44,7 +44,7 @@ public class CartListActivity extends AppCompatActivity {
         initView();
         cartManager = CartManager.getInstance();
 
-        userManager = UserManager.getInstance(getApplicationContext());
+        userManager = UserManager.getInstance();
         User currentUser = userManager.getCurrentUser();
         cartManager.initializeCart(getApplicationContext(), currentUser);
 

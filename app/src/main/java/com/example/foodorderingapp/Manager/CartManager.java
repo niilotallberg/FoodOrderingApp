@@ -26,10 +26,6 @@ public class CartManager {
     }
 
     public void initializeCart(Context context, User cartOwner) {
-        if (cartOwner == null) {
-            // TODO handle the case where cartOwner is null, such as throwing an exception or logging an error
-            return;
-        }
         this.cartOwner = cartOwner;
         final HashMap<FoodDomain, Integer> cart = Serializer.deserializeCart(context, this.cartOwner.getUsername() + "_cart.ser");
         if (cart == null) {

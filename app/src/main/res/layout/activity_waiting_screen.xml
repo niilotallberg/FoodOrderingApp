@@ -48,7 +48,7 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="228dp"
+        android:layout_marginBottom="210dp"
         android:fontFamily="sans-serif-light"
         android:text="Estimated time"
         android:textSize="22dp"
@@ -71,13 +71,11 @@
         android:id="@+id/submitButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="2dp"
         android:layout_marginBottom="16dp"
         android:backgroundTint="#F4511E"
         android:text="Submit your rating"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.071"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -95,6 +93,7 @@
         android:id="@+id/btnHome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
         android:layout_marginBottom="16dp"
         android:backgroundTint="#F4511E"
         android:text="Go to main menu"

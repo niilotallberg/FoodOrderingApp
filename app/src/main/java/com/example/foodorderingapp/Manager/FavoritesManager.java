@@ -15,15 +15,12 @@ import java.util.ArrayList;
 
 public class FavoritesManager {
     private static FavoritesManager instance;
-    private Context context;
 
-    private FavoritesManager(Context context) {
-        this.context = context;
-    }
+    private FavoritesManager() {}
 
-    public static FavoritesManager getInstance(Context context) {
+    public static FavoritesManager getInstance() {
         if (instance == null) {
-            instance = new FavoritesManager(context);
+            instance = new FavoritesManager();
         }
         return instance;
     }
@@ -32,12 +29,12 @@ public class FavoritesManager {
         return username + "_favorites.ser";
     }
 
-    public void saveFavorites(User user, ArrayList<FoodDomain> favorites) {
+    public void saveFavorites(Context context, User user, ArrayList<FoodDomain> favorites) {
         String filename = getFavoritesFilename(user.getUsername());
         Serializer.serializeObject(favorites, context, filename);
     }
 
-    public ArrayList<FoodDomain> loadFavorites(User user) {
+    public ArrayList<FoodDomain> loadFavorites(Context context, User user) {
         String filename = getFavoritesFilename(user.getUsername());
         ArrayList<FoodDomain> favorites = Serializer.deserializeObject(context, filename);
         if (favorites == null) {

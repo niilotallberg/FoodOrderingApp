@@ -19,70 +19,81 @@ public class UserManager {
     private static UserManager instance;
     private List<User> users;
     private User currentUser;
-    private Context context;
 
-    private UserManager(Context context) {
-        this.context = context;
-        users = loadUsers();
-        currentUser = null;
+    private UserManager() {
     }
 
-    public static UserManager getInstance(Context context) {
+    public static UserManager getInstance() {
         if (instance == null) {
-            instance = new UserManager(context);
+            instance = new UserManager();
         }
         return instance;
     }
 
-    private List<User> loadUsers() {
+    private void saveUsers(Context context) {
+        Serializer.serializeObject((ArrayList<User>) users, context, USERS_FILE);
+    }
+
+    public List<User> loadUsers(Context context) {
         List<User> loadedUsers = Serializer.deserializeObject(context, USERS_FILE);
         if (loadedUsers == null) {
             return new ArrayList<>();
         }
         return loadedUsers;
     }
-
-    private void saveUsers() {
-        Serializer.serializeObject((ArrayList<User>) users, context, USERS_FILE);
+    public void initializeUsers(Context context) {
+        users = loadUsers(context);
     }
 
-    public void addUser(User user) {
+    public void addUser(Context context, User user) {
         users.add(user);
-        saveUsers();
+        saveUsers(context);
     }
 
-    public Optional<User> getUser(String email, String password) {
-        return users.stream()
-                .filter(user -> user.getEmail().equals(email) && user.getPassword().equals(password))
-                .findFirst();
+    public User getUser(String email, String password) {
+        if (users == null) {
+            return null;
+        } else {
+            for (User user : users) {
+                if (user.getEmail().equals(email) && user.getPassword().equals(password)) {
+                    currentUser = user;
+                    return user;
+                }
+            }
+        }
+        return null;
     }
 
-    public void updateUser(User user) {
+    public void updateUser(Context context, User user) {
         users.removeIf(u -> u.getEmail().equals(user.getEmail()));
         users.add(user);
-        saveUsers();
+        saveUsers(context);
     }
 
     public boolean isUserExists(String username) {
+        if (users == null) {
+            return false;
+        }
+
         for (User user : users) {
             if (user.getUsername().equals(username)) {
                 return true;
             }
         }
+
         return false;
     }
 
     public boolean isEmailExists(String email) {
+        if (users == null) {
+            return false;
+        }
         for (User user : users) {
             if (user.getEmail().equals(email)) {
                 return true;
             }
         }
         return false;
-    }
-
-    public void setCurrentUser(User user) {
-        currentUser = user;
     }
 
     public User getCurrentUser() {
