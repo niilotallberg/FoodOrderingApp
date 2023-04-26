@@ -48,6 +48,8 @@ public class FoodStorage {
         addFoodDomain(new FoodDomain("Fanta Zero", "fanta_zero", "Fanta - Zero sugar", 2.00), Category.DRINK);
 
         addFoodDomain(new FoodDomain("Ice Cream", "ice_cream", "Strawberry, vanilla and chocolate ice cream", 4.00), Category.DESSERT);
+        addFoodDomain(new FoodDomain("Cheese cake", "cheese_cake", "Cheese cake, Strawberries, blueberries", 5.00), Category.DESSERT);
+        addFoodDomain(new FoodDomain("Chocolate cake", "chocolate_cake", "Chocolate cake, chocolate sauce", 5.00), Category.DESSERT);
     }
 
     public void addFoodDomain(FoodDomain foodDomain, Category category) {
