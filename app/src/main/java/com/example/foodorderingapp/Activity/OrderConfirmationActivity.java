@@ -4,8 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,7 +17,8 @@ import com.example.foodorderingapp.R;
 public class OrderConfirmationActivity extends AppCompatActivity {
     private Button btnAddCard, btnConfirm;
     private TextView twCode;
-    private CheckBox btnOnTheWay, btnPickup;
+    private RadioGroup radioGroupDeliveryMethod;
+    private RadioButton radioBtnDelivery, radioBtnPickup;
     private String name, code, expiring, safety;
     private boolean cardAdded = false;
 
@@ -29,8 +30,9 @@ public class OrderConfirmationActivity extends AppCompatActivity {
         btnAddCard = findViewById(R.id.btnAddCard);
         btnConfirm = findViewById(R.id.btnConfirm);
         twCode = findViewById(R.id.twCode);
-        btnOnTheWay = findViewById(R.id.btnOnTheWay);
-        btnPickup = findViewById(R.id.btnPickup);
+        radioGroupDeliveryMethod = findViewById(R.id.radioGroupDeliveryMethod);
+        radioBtnDelivery = findViewById(R.id.radioBtnDelivery);
+        radioBtnPickup = findViewById(R.id.radioBtnPickup);
 
         btnAddCard.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,9 +56,9 @@ public class OrderConfirmationActivity extends AppCompatActivity {
                     cartManager.clearCart(OrderConfirmationActivity.this);
 
                     Intent intent = new Intent(OrderConfirmationActivity.this, WaitingScreenActivity.class);
-                    if (btnOnTheWay.isChecked()) {
+                    if (radioBtnDelivery.isChecked()) {
                         intent.putExtra("orderStatus", "Your order is on the way");
-                    } else if (btnPickup.isChecked()) {
+                    } else if (radioBtnPickup.isChecked()) {
                         intent.putExtra("orderStatus", "You can pickup your order in");
                     }
                     intent.putExtra("fromOrderConfirmation", true);
@@ -94,13 +96,8 @@ public class OrderConfirmationActivity extends AppCompatActivity {
             return false;
         }
 
-        if (!btnOnTheWay.isChecked() && !btnPickup.isChecked()) {
+        if (radioGroupDeliveryMethod.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "Please select a delivery method", Toast.LENGTH_SHORT).show();
-            return false;
-        }
-
-        if (btnOnTheWay.isChecked() && btnPickup.isChecked()) {
-            Toast.makeText(this, "Please select only one delivery method", Toast.LENGTH_SHORT).show();
             return false;
         }
 
