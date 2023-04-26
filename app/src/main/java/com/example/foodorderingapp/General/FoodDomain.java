@@ -12,13 +12,26 @@ public class FoodDomain implements Serializable {
     private String pic;
     private String description;
     private Double fee;
-    private boolean isFavorite;
+    private boolean isFavorite, isPopular;
 
     public FoodDomain(String title, String pic, String description, Double fee) {
         this.title = title;
         this.pic = pic;
         this.description = description;
         this.fee = fee;
+        this.isPopular = false;
+    }
+
+    public FoodDomain(String title, String pic, String description, Double fee, boolean isPopular) {
+        this.title = title;
+        this.pic = pic;
+        this.description = description;
+        this.fee = fee;
+        this.isPopular = isPopular;
+    }
+
+    public boolean isPopular() {
+        return isPopular;
     }
 
     public String getTitle() {
