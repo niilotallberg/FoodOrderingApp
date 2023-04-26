@@ -74,23 +74,24 @@
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.003"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.779">
+            app:layout_constraintVertical_bias="0.802">
 
                 <RadioButton
                     android:id="@+id/twCode"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="monospace"
-                    android:text="New Card" />
+                    android:text="Add your card here" />
 
                 <RadioButton
                     android:id="@+id/radioButton2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="monospace"
-                    android:text="Visa Electron : 3456 **** : 25/07 : 324" />
+                    android:text="MobilePay" />
 
                 <RadioButton
                     android:id="@+id/radioButton"
@@ -98,7 +99,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="60dp"
                     android:fontFamily="monospace"
-                    android:text="American Express 9543 **** : 11/02 : 696" />
+                    android:text="PayPal" />
         </RadioGroup>
 
 

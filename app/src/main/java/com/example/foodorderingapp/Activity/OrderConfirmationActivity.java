@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -48,30 +49,20 @@ public class OrderConfirmationActivity extends AppCompatActivity {
         btnConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CartManager cartManager = CartManager.getInstance();
-                cartManager.clearCart(OrderConfirmationActivity.this);
+                if (validatePaymentAndDelivery()) {
+                    CartManager cartManager = CartManager.getInstance();
+                    cartManager.clearCart(OrderConfirmationActivity.this);
 
-                if (!btnOnTheWay.isChecked() && !btnPickup.isChecked()) {
-                    // If neither button is selected, an error message is displayed.
-                    Toast.makeText(OrderConfirmationActivity.this, "Please select a delivery method", Toast.LENGTH_SHORT).show();
-                    return;
+                    Intent intent = new Intent(OrderConfirmationActivity.this, WaitingScreenActivity.class);
+                    if (btnOnTheWay.isChecked()) {
+                        intent.putExtra("orderStatus", "Your order is on the way");
+                    } else if (btnPickup.isChecked()) {
+                        intent.putExtra("orderStatus", "You can pickup your order in");
+                    }
+                    intent.putExtra("fromOrderConfirmation", true);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
                 }
-
-                if (btnOnTheWay.isChecked() && btnPickup.isChecked()) {
-                    // If both buttons are selected, an error message is displayed.
-                    Toast.makeText(OrderConfirmationActivity.this, "Please select only one delivery method", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                Intent intent = new Intent(OrderConfirmationActivity.this, WaitingScreenActivity.class);
-                if (btnOnTheWay.isChecked()) {
-                    intent.putExtra("orderStatus", "Your order is on the way");
-                } else if (btnPickup.isChecked()) {
-                    intent.putExtra("orderStatus", "You can pickup your order in");
-                }
-                intent.putExtra("fromOrderConfirmation", true);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
             }
         });
     }
@@ -92,5 +83,27 @@ public class OrderConfirmationActivity extends AppCompatActivity {
 
     private void updateNewCard() {
         twCode.setText(name + ": " + code + ": " + expiring + ": " + safety);
+    }
+
+    private boolean validatePaymentAndDelivery() {
+        RadioButton radioButtonMobilePay = findViewById(R.id.radioButton2);
+        RadioButton radioButtonPayPal = findViewById(R.id.radioButton);
+
+        if (!cardAdded && !radioButtonMobilePay.isChecked() && !radioButtonPayPal.isChecked()) {
+            Toast.makeText(this, "Please input your card or choose a different payment method", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        if (!btnOnTheWay.isChecked() && !btnPickup.isChecked()) {
+            Toast.makeText(this, "Please select a delivery method", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        if (btnOnTheWay.isChecked() && btnPickup.isChecked()) {
+            Toast.makeText(this, "Please select only one delivery method", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        return true;
     }
 }
