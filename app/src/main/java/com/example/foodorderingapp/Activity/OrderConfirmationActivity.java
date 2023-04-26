@@ -4,13 +4,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
+import com.example.foodorderingapp.General.User;
+import com.example.foodorderingapp.Helpers.UserAuthenticator;
 import com.example.foodorderingapp.Manager.CartManager;
 import com.example.foodorderingapp.R;
 
@@ -21,6 +24,8 @@ public class OrderConfirmationActivity extends AppCompatActivity {
     private RadioButton radioBtnDelivery, radioBtnPickup;
     private String name, code, expiring, safety;
     private boolean cardAdded = false;
+    private EditText etDeliveryAddress;
+    private ConstraintLayout deliveryAddressLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +38,26 @@ public class OrderConfirmationActivity extends AppCompatActivity {
         radioGroupDeliveryMethod = findViewById(R.id.radioGroupDeliveryMethod);
         radioBtnDelivery = findViewById(R.id.radioBtnDelivery);
         radioBtnPickup = findViewById(R.id.radioBtnPickup);
+        etDeliveryAddress = findViewById(R.id.etDeliveryAddress);
+        deliveryAddressLayout = findViewById(R.id.deliveryAddressLayout);
+
+        deliveryAddressLayout.setVisibility(radioBtnDelivery.isChecked() ? View.VISIBLE : View.GONE);
+
+        radioGroupDeliveryMethod.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == R.id.radioBtnDelivery) {
+                    deliveryAddressLayout.setVisibility(View.VISIBLE);
+                } else {
+                    deliveryAddressLayout.setVisibility(View.GONE);
+                }
+            }
+        });
+
+        User currentUser = UserAuthenticator.getInstance().getAuthenticatedUser();
+        if (currentUser != null && currentUser.getAddress() != null) {
+            etDeliveryAddress.setText(currentUser.getAddress());
+        }
 
         btnAddCard.setOnClickListener(new View.OnClickListener() {
             @Override
