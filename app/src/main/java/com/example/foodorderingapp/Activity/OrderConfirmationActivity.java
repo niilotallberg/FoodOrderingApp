@@ -126,6 +126,11 @@ public class OrderConfirmationActivity extends AppCompatActivity {
             return false;
         }
 
+        if (radioBtnDelivery.isChecked() && etDeliveryAddress.getText().toString().isEmpty()) {
+            Toast.makeText(this, "Please input your delivery address", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
         return true;
     }
 }
