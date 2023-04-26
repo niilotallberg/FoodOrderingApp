@@ -19,6 +19,7 @@ import com.example.foodorderingapp.Adapter.CategoryAdapter;
 import com.example.foodorderingapp.Adapter.PopularAdapter;
 import com.example.foodorderingapp.General.CategoryDomain;
 import com.example.foodorderingapp.General.FoodDomain;
+import com.example.foodorderingapp.General.FoodStorage;
 import com.example.foodorderingapp.General.User;
 import com.example.foodorderingapp.Helpers.UserAuthenticator;
 import com.example.foodorderingapp.R;
@@ -121,10 +122,12 @@ public class HomePageActivity extends AppCompatActivity {
         adapter = new CategoryAdapter(category, new CategoryAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                // // TODO Open categoryview
-                Toast.makeText(HomePageActivity.this, "Clicked: " + category.get(position).getTitle(), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(HomePageActivity.this, DetailCategoryActivity.class);
+                intent.putExtra("category", FoodStorage.Category.valueOf(category.get(position).getTitle().toUpperCase()));
+                startActivity(intent);
             }
         });
+
         recyclerViewCategoryList.setAdapter(adapter);
     }
 

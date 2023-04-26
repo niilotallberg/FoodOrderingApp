@@ -66,9 +66,9 @@ public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.Favo
 
         FavoritesViewHolder(@NonNull View itemView) {
             super(itemView);
-            txtFavoriteTitle = itemView.findViewById(R.id.txtFavoriteTitle);
-            txtFavoriteFee = itemView.findViewById(R.id.txtFavoriteFee);
-            ivFavoritePic = itemView.findViewById(R.id.ivFavoritePic);
+            txtFavoriteTitle = itemView.findViewById(R.id.txtCategoryFoodTitle);
+            txtFavoriteFee = itemView.findViewById(R.id.txtCategoryFoodFee);
+            ivFavoritePic = itemView.findViewById(R.id.ivCategoryFoodPic);
             txtAddToCartButton = itemView.findViewById(R.id.txtAddToCartButton);
         }
     }
