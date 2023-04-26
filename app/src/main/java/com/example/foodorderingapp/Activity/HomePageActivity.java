@@ -137,11 +137,11 @@ public class HomePageActivity extends AppCompatActivity {
         recyclerViewPopularList.setLayoutManager(linearLayoutManager);
 
         ArrayList<FoodDomain> foodList = new ArrayList<>();
-        foodList.add(new FoodDomain("Pepperoni pizza", "pepperoni_pizza", "Slices of pepperoni, mozzarella cheese, ground black pepper, tomato sauce", 14.50));
-        foodList.add(new FoodDomain("Cheese burger", "cheese_burger", "Beef, gouda cheese, special sauce, lettuce, tomatoes, onion rings", 11.50));
-        foodList.add(new FoodDomain("Pasta carbonara", "pasta_carbonara", "Spagetti, bacon, parmesan cheese, garlic, cream sauce", 14.50));
-        foodList.add(new FoodDomain("CocaCola", "cocacola", "CocaCola - Normal sugar", 3.50));
-        foodList.add(new FoodDomain("Ice Cream", "ice_cream", "Strawberry, vanilla and chocolate ice cream", 6.50));
+        foodList.add(new FoodDomain("Pepperoni pizza", "pepperoni_pizza", "Slices of pepperoni, mozzarella cheese, ground black pepper, tomato sauce", 12.50));
+        foodList.add(new FoodDomain("Cheese burger", "cheese_burger", "Beef, gouda cheese, special sauce, lettuce, tomatoes, onion rings", 8.50));
+        foodList.add(new FoodDomain("Pasta carbonara", "pasta_carbonara", "Spagetti, bacon, parmesan cheese, garlic, cream sauce", 12.50));
+        foodList.add(new FoodDomain("CocaCola", "cocacola", "CocaCola - Normal sugar", 2.50));
+        foodList.add(new FoodDomain("Ice Cream", "ice_cream", "Strawberry, vanilla and chocolate ice cream", 4.00));
 
         adapter2 = new PopularAdapter(foodList);
         recyclerViewPopularList.setAdapter(adapter2);
