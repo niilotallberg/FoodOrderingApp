@@ -50,6 +50,9 @@ public class FoodStorage {
         addFoodDomain(new FoodDomain("Ice Cream", "ice_cream", "Strawberry, vanilla and chocolate ice cream", 4.00), Category.DESSERT);
         addFoodDomain(new FoodDomain("Cheese cake", "cheese_cake", "Cheese cake, Strawberries, blueberries", 5.00), Category.DESSERT);
         addFoodDomain(new FoodDomain("Chocolate cake", "chocolate_cake", "Chocolate cake, chocolate sauce", 5.00, true), Category.DESSERT);
+        addFoodDomain(new FoodDomain("Pannacotta", "pannacotta", "Pannacotta, strawberry jam, blueberries", 6.00), Category.DESSERT);
+        addFoodDomain(new FoodDomain("Apple pie", "applepie", "Pannacotta, apple jam, vanilla ice cream", 5.50), Category.DESSERT);
+
     }
 
     public void addFoodDomain(FoodDomain foodDomain, Category category) {
