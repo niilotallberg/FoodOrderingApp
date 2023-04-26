@@ -33,7 +33,20 @@ public class DetailCategoryAdapter extends RecyclerView.Adapter<DetailCategoryAd
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         FoodDomain food = foodList.get(position);
-        holder.bind(food);
+
+        int imageResource = holder.ivCategoryFoodPic.getContext().getResources().getIdentifier(food.getPic(), "drawable", holder.ivCategoryFoodPic.getContext().getPackageName());
+        holder.ivCategoryFoodPic.setImageResource(imageResource);
+        holder.txtCategoryFoodTitle.setText(food.getTitle());
+        holder.txtCategoryFoodFee.setText(String.format("%.2f", food.getFee()));
+
+        holder.txtAddToCartButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), ShowDetailActivity.class);
+                intent.putExtra("object", food);
+                v.getContext().startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -53,22 +66,6 @@ public class DetailCategoryAdapter extends RecyclerView.Adapter<DetailCategoryAd
             txtCategoryFoodTitle = itemView.findViewById(R.id.txtCategoryFoodTitle);
             txtCategoryFoodFee = itemView.findViewById(R.id.txtCategoryFoodFee);
             txtAddToCartButton = itemView.findViewById(R.id.txtAddToCartButton);
-        }
-
-        public void bind(FoodDomain food) {
-            int imageResource = itemView.getContext().getResources().getIdentifier(food.getPic(), "drawable", itemView.getContext().getPackageName());
-            ivCategoryFoodPic.setImageResource(imageResource);
-            txtCategoryFoodTitle.setText(food.getTitle());
-            txtCategoryFoodFee.setText(String.format("%.2f", food.getFee()));
-
-            txtAddToCartButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(v.getContext(), ShowDetailActivity.class);
-                    intent.putExtra("object", food);
-                    v.getContext().startActivity(intent);
-                }
-            });
         }
     }
 }
