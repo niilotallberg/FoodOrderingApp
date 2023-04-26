@@ -21,10 +21,20 @@ public class FoodStorage {
         for (Category category : Category.values()) {
             foodList.put(category, new ArrayList<>());
         }
-        addFoodDomain(new FoodDomain("Pepperoni pizza", "pepperoni_pizza", "Slices of pepperoni, mozzarella cheese, ground black pepper, tomato sauce", 14.50), Category.PIZZA);
+        addFoodDomain(new FoodDomain("Pepperoni pizza", "pepperoni_pizza", "Slices of pepperoni, mozzarella cheese, ground black pepper, tomato sauce, olive oil", 14.50), Category.PIZZA);
+        addFoodDomain(new FoodDomain("Margherita pizza", "margherita_pizza", "Mozzarella cheese, ground black pepper, tomato sauce, basilica, olive oil", 14.50), Category.PIZZA);
+        addFoodDomain(new FoodDomain("Cheese pizza", "cheese_pizza", "Mozzarella cheese, ground black pepper, tomato sauce, olive oil", 12.50), Category.PIZZA);
+        addFoodDomain(new FoodDomain("Vegetable pizza", "vegetable_pizza", "Mozzarella cheese, tomatoes, arugula , salad dressing, ground black pepper, tomato sauce, olive oil", 13.50), Category.PIZZA);
+
         addFoodDomain(new FoodDomain("Pasta carbonara", "pasta_carbonara", "Spagetti, bacon, parmesan cheese, garlic, cream sauce", 14.50), Category.PASTA);
+
+
         addFoodDomain(new FoodDomain("Cheese burger", "cheese_burger", "Beef, gouda cheese, special sauce, lettuce, tomatoes, onion rings", 11.50), Category.BURGER);
+
+
         addFoodDomain(new FoodDomain("CocaCola", "cocacola", "CocaCola - Normal sugar", 3.50), Category.DRINK);
+
+
         addFoodDomain(new FoodDomain("Ice Cream", "ice_cream", "Strawberry, vanilla and chocolate ice cream", 6.50), Category.DESSERT);
     }
 
