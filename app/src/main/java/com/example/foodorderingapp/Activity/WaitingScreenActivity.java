@@ -84,7 +84,7 @@ public class WaitingScreenActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                twCountdown.setText("Your order should be ready soon");
+                twCountdown.setText("Sorry, we are a bit late!");
 
             }
         }.start();
