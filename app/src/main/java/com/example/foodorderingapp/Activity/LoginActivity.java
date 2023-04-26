@@ -64,7 +64,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_LONG).show();
                 } else {
-                    Toast.makeText(LoginActivity.this, "Invalid Email and Password combination", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginActivity.this, "Could not find an account with this email and password combination", Toast.LENGTH_LONG).show();
                 }
             }
         });
