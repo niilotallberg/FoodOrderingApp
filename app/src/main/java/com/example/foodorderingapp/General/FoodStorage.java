@@ -63,10 +63,6 @@ public class FoodStorage {
         return foodList.get(category);
     }
 
-    public Map<Category, List<FoodDomain>> getAllFoodList() {
-        return foodList;
-    }
-
     public List<FoodDomain> getPopularFoodList() {
         List<FoodDomain> popularFoodList = new ArrayList<>();
 

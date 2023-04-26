@@ -83,10 +83,6 @@ public class CartManager {
         return cart;
     }
 
-    public User getCartOwner() {
-        return cartOwner;
-    }
-
     public void clearCart(Context context) {
         cart.clear();
         saveCart(context);
