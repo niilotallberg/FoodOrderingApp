@@ -17,7 +17,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.example.foodorderingapp.Adapter.CategoryAdapter;
 import com.example.foodorderingapp.Adapter.PopularAdapter;
-import com.example.foodorderingapp.General.CategoryDomain;
 import com.example.foodorderingapp.General.FoodDomain;
 import com.example.foodorderingapp.General.FoodStorage;
 import com.example.foodorderingapp.General.User;
