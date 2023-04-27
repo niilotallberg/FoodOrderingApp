@@ -5,6 +5,8 @@
 
 package com.example.foodorderingapp.General;
 
+import com.example.foodorderingapp.R;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -12,12 +14,29 @@ import java.util.Map;
 
 public class FoodStorage {
     public enum Category {
-        PIZZA,
-        PASTA,
-        BURGER,
-        DRINK,
-        DESSERT
+        PIZZA("pizza", R.drawable.cat_background1),
+        PASTA("pasta", R.drawable.cat_background2),
+        BURGER("burger", R.drawable.cat_background3),
+        DRINK("drink", R.drawable.cat_background4),
+        DESSERT("dessert", R.drawable.cat_background5);
+
+        private final String iconName;
+        private final int backgroundDrawableId;
+
+        Category(String iconName, int backgroundDrawableId) {
+            this.iconName = iconName;
+            this.backgroundDrawableId = backgroundDrawableId;
+        }
+
+        public String getIconName() {
+            return iconName;
+        }
+
+        public int getBackgroundDrawableId() {
+            return backgroundDrawableId;
+        }
     }
+
 
     private Map<Category, List<FoodDomain>> foodList;
 

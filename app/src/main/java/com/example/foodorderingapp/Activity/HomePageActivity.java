@@ -25,6 +25,7 @@ import com.example.foodorderingapp.Helpers.UserAuthenticator;
 import com.example.foodorderingapp.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class HomePageActivity extends AppCompatActivity {
     private RecyclerView.Adapter adapter, adapter2;
@@ -112,18 +113,13 @@ public class HomePageActivity extends AppCompatActivity {
         recyclerViewCategoryList = findViewById(R.id.rvCategories);
         recyclerViewCategoryList.setLayoutManager(linearLayoutManager);
 
-        ArrayList<CategoryDomain> category = new ArrayList<>();
-        category.add(new CategoryDomain("Pizza", "pizza"));
-        category.add(new CategoryDomain("Pasta", "pasta"));
-        category.add(new CategoryDomain("Burger", "burger"));
-        category.add(new CategoryDomain("Drink", "drink"));
-        category.add(new CategoryDomain("Dessert", "dessert"));
+        FoodStorage.Category[] categories = FoodStorage.Category.values();
 
-        adapter = new CategoryAdapter(category, new CategoryAdapter.OnItemClickListener() {
+        adapter = new CategoryAdapter(Arrays.asList(categories), new CategoryAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
                 Intent intent = new Intent(HomePageActivity.this, DetailCategoryActivity.class);
-                intent.putExtra("category", FoodStorage.Category.valueOf(category.get(position).getTitle().toUpperCase()));
+                intent.putExtra("category", categories[position]);
                 startActivity(intent);
             }
         });

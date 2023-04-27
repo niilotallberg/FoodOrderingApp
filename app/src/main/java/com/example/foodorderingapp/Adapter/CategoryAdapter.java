@@ -1,8 +1,3 @@
-// Ohjelman koodaamisessa käytetty apuna seuraavia lähteitä:
-// https://www.youtube.com/watch?v=9nWcPPHBzMk
-// https://www.youtube.com/watch?v=BLfqZlUI_MM&t=122s
-// https://www.youtube.com/watch?v=9CkpMm-n5iA
-
 package com.example.foodorderingapp.Adapter;
 
 import android.view.LayoutInflater;
@@ -14,20 +9,20 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
-import com.example.foodorderingapp.General.CategoryDomain;
+import com.example.foodorderingapp.General.FoodStorage;
 import com.example.foodorderingapp.R;
-import java.util.ArrayList;
+import java.util.List;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder> {
-    ArrayList<CategoryDomain> categoryDomains;
+    List<FoodStorage.Category> categories;
     private OnItemClickListener onItemClickListener;
 
     public interface OnItemClickListener {
         void onItemClick(int position);
     }
 
-    public CategoryAdapter(ArrayList<CategoryDomain> categoryDomains, OnItemClickListener onItemClickListener) {
-        this.categoryDomains = categoryDomains;
+    public CategoryAdapter(List<FoodStorage.Category> categories, OnItemClickListener onItemClickListener) {
+        this.categories = categories;
         this.onItemClickListener = onItemClickListener;
     }
 
@@ -39,35 +34,10 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull CategoryAdapter.ViewHolder holder, int position) {
-        holder.categoryName.setText(categoryDomains.get(position).getTitle());
-        String picUrl = "";
-        switch (position) {
-            case 0: {
-                picUrl = "pizza";
-                holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.cat_background1));
-                break;
-            }
-            case 1: {
-                picUrl = "pasta";
-                holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.cat_background2));
-                break;
-            }
-            case 2: {
-                picUrl = "burger";
-                holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.cat_background3));
-                break;
-            }
-            case 3: {
-                picUrl = "drink";
-                holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.cat_background4));
-                break;
-            }
-            case 4: {
-                picUrl = "dessert";
-                holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.cat_background5));
-                break;
-            }
-        }
+        holder.categoryName.setText(categories.get(position).name());
+        String picUrl = categories.get(position).getIconName();
+        holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(), categories.get(position).getBackgroundDrawableId()));
+
         int drawableResourceId = holder.itemView.getContext().getResources().getIdentifier(picUrl, "drawable", holder.itemView.getContext().getPackageName());
 
         holder.categoryPic.setImageResource(drawableResourceId);
@@ -75,7 +45,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
 
     @Override
     public int getItemCount() {
-        return categoryDomains.size();
+        return categories.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
