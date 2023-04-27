@@ -38,7 +38,7 @@ public class AddCardActivity extends AppCompatActivity {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (validateCardNumber() && validateExpiringDate() && validateSafetyNumber()) {
+                if (validateCardNumber() && validateNameOnCard() && validateExpiringDate() && validateSafetyNumber()) {
                     saveCard();
                 }
             }
@@ -47,8 +47,18 @@ public class AddCardActivity extends AppCompatActivity {
 
     private boolean validateCardNumber() {
         String cardNumber = etCardNumber.getText().toString();
-        if (cardNumber.length() > 12) {
-            etCardNumber.setError("Card number must be no more than 12 digits");
+        if (cardNumber.length() != 12) {
+            etCardNumber.setError("Card number must be exactly 12 digits");
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    private boolean validateNameOnCard() {
+        String nameOnCard = etNameOnCard.getText().toString();
+        if (nameOnCard.isEmpty()) {
+            etNameOnCard.setError("Name on card cannot be empty");
             return false;
         } else {
             return true;
