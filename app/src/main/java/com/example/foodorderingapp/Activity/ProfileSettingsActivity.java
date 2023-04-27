@@ -36,9 +36,9 @@ public class ProfileSettingsActivity extends AppCompatActivity {
 
         btnLogout = findViewById(R.id.logOutButton);
         btnSaveChanges = findViewById(R.id.saveButton);
-        etEmail = findViewById(R.id.editEmail);
-        etPassword = findViewById(R.id.editPassword);
-        etAddress = findViewById(R.id.editAddress);
+        etEmail = findViewById(R.id.etProfileSettingsEmail);
+        etPassword = findViewById(R.id.etProfileSettingPassword);
+        etAddress = findViewById(R.id.etProfileSettingsAddress);
         ivCurrentProfilePicture = findViewById(R.id.ivCurrentProfilePicture);
         ivCurrentProfilePicture.setImageResource(currentUser.getProfilePicture());
         selectedProfilePictureId = currentUser.getProfilePicture();

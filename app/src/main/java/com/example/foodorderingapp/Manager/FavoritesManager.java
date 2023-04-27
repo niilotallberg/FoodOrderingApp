@@ -9,7 +9,6 @@ import android.content.Context;
 import com.example.foodorderingapp.Data.Serializer;
 import com.example.foodorderingapp.General.FoodDomain;
 import com.example.foodorderingapp.General.User;
-
 import java.util.ArrayList;
 
 public class FavoritesManager {

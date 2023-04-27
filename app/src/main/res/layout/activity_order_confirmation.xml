@@ -20,11 +20,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.423"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+            app:layout_constraintTop_toBottomOf="@+id/rgPaymentMethod"
             app:rippleColor="#00BCD4" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/txtActivityTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -48,13 +48,13 @@
             app:layout_constraintTop_toBottomOf="@+id/deliveryAddressLayout" />
 
         <RadioGroup
-            android:id="@+id/radioGroupDeliveryMethod"
+            android:id="@+id/rgDeliveryMethod"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView4">
+            app:layout_constraintTop_toBottomOf="@+id/txtActivityTitle">
 
                 <RadioButton
                     android:id="@+id/radioBtnDelivery"
@@ -74,7 +74,7 @@
             android:id="@+id/deliveryAddressLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/radioGroupDeliveryMethod"
+            app:layout_constraintTop_toBottomOf="@+id/rgDeliveryMethod"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 
@@ -92,7 +92,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <RadioGroup
-            android:id="@+id/radioGroup"
+            android:id="@+id/rgPaymentMethod"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
@@ -102,21 +102,21 @@
             app:layout_constraintTop_toBottomOf="@+id/btnAddCard">
 
                 <RadioButton
-                    android:id="@+id/twCode"
+                    android:id="@+id/radioBtnCard"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="monospace"
                     android:text="Add your card here" />
 
                 <RadioButton
-                    android:id="@+id/radioButton2"
+                    android:id="@+id/radioBtnMobilePay"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="monospace"
                     android:text="MobilePay" />
 
                 <RadioButton
-                    android:id="@+id/radioButton"
+                    android:id="@+id/radioBtnPayPal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="monospace"

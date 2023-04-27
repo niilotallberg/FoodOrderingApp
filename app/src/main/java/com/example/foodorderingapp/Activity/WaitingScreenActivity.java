@@ -38,7 +38,7 @@ public class WaitingScreenActivity extends AppCompatActivity {
 
         btnHome = findViewById(R.id.btnHome);
 
-        submitButton = findViewById(R.id.submitButton);
+        submitButton = findViewById(R.id.btnSubmit);
 
         startTimer();
 

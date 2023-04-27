@@ -16,7 +16,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
-
 import com.example.foodorderingapp.General.User;
 import com.example.foodorderingapp.Helpers.UserAuthenticator;
 import com.example.foodorderingapp.Manager.CartManager;
@@ -39,8 +38,8 @@ public class OrderConfirmationActivity extends AppCompatActivity {
 
         btnAddCard = findViewById(R.id.btnAddCard);
         btnConfirm = findViewById(R.id.btnConfirm);
-        twCode = findViewById(R.id.twCode);
-        radioGroupDeliveryMethod = findViewById(R.id.radioGroupDeliveryMethod);
+        twCode = findViewById(R.id.radioBtnCard);
+        radioGroupDeliveryMethod = findViewById(R.id.rgDeliveryMethod);
         radioBtnDelivery = findViewById(R.id.radioBtnDelivery);
         radioBtnPickup = findViewById(R.id.radioBtnPickup);
         etDeliveryAddress = findViewById(R.id.etDeliveryAddress);
@@ -118,8 +117,8 @@ public class OrderConfirmationActivity extends AppCompatActivity {
     }
 
     private boolean validatePaymentAndDelivery() {
-        RadioButton radioButtonMobilePay = findViewById(R.id.radioButton2);
-        RadioButton radioButtonPayPal = findViewById(R.id.radioButton);
+        RadioButton radioButtonMobilePay = findViewById(R.id.radioBtnMobilePay);
+        RadioButton radioButtonPayPal = findViewById(R.id.radioBtnPayPal);
 
         if (!cardAdded && !radioButtonMobilePay.isChecked() && !radioButtonPayPal.isChecked()) {
             Toast.makeText(this, "Please input your card or choose a different payment method", Toast.LENGTH_SHORT).show();

@@ -9,7 +9,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,7 +18,6 @@ import com.example.foodorderingapp.General.User;
 import com.example.foodorderingapp.Helpers.UserAuthenticator;
 import com.example.foodorderingapp.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
 import java.util.List;
 
 public class FavoritesActivity extends AppCompatActivity {
@@ -34,7 +32,7 @@ public class FavoritesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favorites);
 
-        recyclerView = findViewById(R.id.favoritesRecyclerView);
+        recyclerView = findViewById(R.id.rvFavorites);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         User currentUser = UserAuthenticator.getInstance().getAuthenticatedUser();
