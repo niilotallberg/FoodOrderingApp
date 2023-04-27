@@ -57,6 +57,7 @@ public class RegisterActivity extends AppCompatActivity {
                 String confirm = etConfirmPassword.getText().toString();
 
                 UserManager userManager = UserManager.getInstance();
+                userManager.initializeUsers(RegisterActivity.this);
 
                 String errorMessage = RegistrationHelper.checkRegistrationInformation(username, email, password, confirm, userManager);
 
