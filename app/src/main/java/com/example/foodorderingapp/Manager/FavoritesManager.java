@@ -13,7 +13,6 @@ import java.util.ArrayList;
 
 public class FavoritesManager {
     private static FavoritesManager instance;
-
     private FavoritesManager() {}
 
     public static FavoritesManager getInstance() {
