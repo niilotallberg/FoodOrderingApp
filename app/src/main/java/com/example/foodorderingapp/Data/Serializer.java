@@ -18,7 +18,7 @@ import java.util.HashMap;
 
 public class Serializer {
 
-    public static <T extends Serializable> void serializeObject(T obj, Context context, String fileName) {
+    public static <T extends Serializable> void serializeObject(T obj, Context context, String fileName) { // Saves different types of information to serialized files
         try (
                 FileOutputStream fileOutputStream = context.openFileOutput(fileName, Context.MODE_PRIVATE);
                 ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream)
@@ -29,7 +29,7 @@ public class Serializer {
         }
     }
 
-    public static <T extends Serializable> T deserializeObject(Context context, String fileName) {
+    public static <T extends Serializable> T deserializeObject(Context context, String fileName) { // Loads different types of information from serialized files
         try (
                 FileInputStream fileInputStream = context.openFileInput(fileName);
                 ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream)
@@ -43,7 +43,7 @@ public class Serializer {
         return null;
     }
 
-    public static HashMap<FoodDomain, Integer> deserializeCart(Context context, String fileName) {
+    public static HashMap<FoodDomain, Integer> deserializeCart(Context context, String fileName) {  // Loads different users carts from serialized files
         HashMap<FoodDomain, Integer> deserializedCart = deserializeObject(context, fileName);
         if (deserializedCart == null) {
             return new HashMap<>();

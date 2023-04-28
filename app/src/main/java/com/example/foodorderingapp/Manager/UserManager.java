@@ -27,7 +27,7 @@ public class UserManager {
         return instance;
     }
 
-    private void saveUsers(Context context) {
+    private void saveUsers(Context context) { // Saves all the registered at the moment users to a file
         Serializer.serializeObject((ArrayList<User>) users, context, USERS_FILE);
     }
 
@@ -35,7 +35,7 @@ public class UserManager {
         users = loadUsers(context);
     }
 
-    public List<User> loadUsers(Context context) {
+    public List<User> loadUsers(Context context) { // Loads all the registered users from a file
         List<User> loadedUsers = Serializer.deserializeObject(context, USERS_FILE);
         if (loadedUsers == null) {
             return new ArrayList<>();
@@ -43,12 +43,12 @@ public class UserManager {
         return loadedUsers;
     }
 
-    public void addUser(Context context, User user) {
+    public void addUser(Context context, User user) { // Takes care of adding a new user (saves the new user to the list in this class and the file in the phones memory)
         users.add(user);
         saveUsers(context);
     }
 
-    public User getUser(String email, String password) {
+    public User getUser(String email, String password) { // returns the user object that matches with the given email-password-combination - or null if there was no such user object found
         if (users == null) {
             return null;
         } else {
@@ -62,13 +62,13 @@ public class UserManager {
         return null;
     }
 
-    public void updateUser(Context context, User user) {
+    public void updateUser(Context context, User user) { // Takes care of updating a users information (To the list in this class and the file in the phones memory)
         users.removeIf(u -> u.getEmail().equals(user.getEmail()));
         users.add(user);
         saveUsers(context);
     }
 
-    public boolean isUserExists(String username) {
+    public boolean isUserExists(String username) { // Checks if there is already an account with the given username
         if (users == null) {
             return false;
         }
@@ -82,7 +82,7 @@ public class UserManager {
         return false;
     }
 
-    public boolean isEmailExists(String email) {
+    public boolean isEmailExists(String email) { // Checks if there is already an account with the given email
         if (users == null) {
             return false;
         }

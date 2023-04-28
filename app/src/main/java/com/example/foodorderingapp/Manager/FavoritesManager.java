@@ -26,12 +26,12 @@ public class FavoritesManager {
         return username + "_favorites.ser";
     }
 
-    public void saveFavorites(Context context, User user, ArrayList<FoodDomain> favorites) {
+    public void saveFavorites(Context context, User user, ArrayList<FoodDomain> favorites) { // Saves the users favorite FoodDomains to a file
         String filename = getFavoritesFilename(user.getUsername());
         Serializer.serializeObject(favorites, context, filename);
     }
 
-    public ArrayList<FoodDomain> loadFavorites(Context context, User user) {
+    public ArrayList<FoodDomain> loadFavorites(Context context, User user) { // Loads the users favorite foodDomains from a file and returns them as an ArrayList
         String filename = getFavoritesFilename(user.getUsername());
         ArrayList<FoodDomain> favorites = Serializer.deserializeObject(context, filename);
         if (favorites == null) {

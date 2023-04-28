@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 public class FoodStorage {
-    public enum Category {
+    public enum Category { // Here we create the different categories used in the program
         PIZZA("pizza", R.drawable.cat_background1),
         PASTA("pasta", R.drawable.cat_background2),
         BURGER("burger", R.drawable.cat_background3),
@@ -40,7 +40,7 @@ public class FoodStorage {
 
     private Map<Category, List<FoodDomain>> foodList;
 
-    public FoodStorage() {
+    public FoodStorage() { // Here we have stored all the different FoodDomains used in our program
         foodList = new HashMap<>();
         for (Category category : Category.values()) {
             foodList.put(category, new ArrayList<>());
@@ -79,15 +79,15 @@ public class FoodStorage {
 
     }
 
-    public void addFoodDomain(FoodDomain foodDomain, Category category) {
+    public void addFoodDomain(FoodDomain foodDomain, Category category) { // This is a method that can be used to add new FoodDomain objects for use in this program
         foodList.get(category).add(foodDomain);
     }
 
-    public List<FoodDomain> getFoodListByCategory(Category category) {
+    public List<FoodDomain> getFoodListByCategory(Category category) { // This method returns a list that contains foodDomains from only one, chosen, category
         return foodList.get(category);
     }
 
-    public List<FoodDomain> getPopularFoodList() {
+    public List<FoodDomain> getPopularFoodList() { // This method return all the FoodDomains that the programmer has set to be Popular (isPopular)
         List<FoodDomain> popularFoodList = new ArrayList<>();
 
         for (Category category : foodList.keySet()) {

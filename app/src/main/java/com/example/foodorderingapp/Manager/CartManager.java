@@ -26,7 +26,7 @@ public class CartManager {
         return instance;
     }
 
-    public void initializeCart(Context context, User cartOwner) {
+    public void initializeCart(Context context, User cartOwner) { // Load the users current cart from a serialized file
         this.cartOwner = cartOwner;
         final HashMap<FoodDomain, Integer> cart = Serializer.deserializeCart(context, this.cartOwner.getUsername() + "_cart.ser");
         if (cart == null) {
@@ -36,12 +36,12 @@ public class CartManager {
         }
     }
 
-    private void saveCart(Context context){
+    private void saveCart(Context context){ // Saves the users  cart to a file
         Serializer.serializeObject(cart, context, this.cartOwner.getUsername() + "_cart.ser");
     }
 
 
-    public void addCartItem(Context context, FoodDomain foodDomain, Integer quantity) {
+    public void addCartItem(Context context, FoodDomain foodDomain, Integer quantity) { // Handles the case where a user adds something to cart
         FoodDomain existingItem = null;
 
         for (FoodDomain item : cart.keySet()) {
@@ -66,7 +66,7 @@ public class CartManager {
         saveCart(context);
     }
 
-    public void removeCartItem(Context context, FoodDomain foodDomain) {
+    public void removeCartItem(Context context, FoodDomain foodDomain) { // Handles the case where a user wants to decrease the quantity of an item in cart or remove it completely
         if (cart.containsKey(foodDomain)) {
             if (cart.get(foodDomain) > 1) {
                 int newValue = cart.get(foodDomain) - 1;
@@ -83,7 +83,7 @@ public class CartManager {
         return cart;
     }
 
-    public void clearCart(Context context) {
+    public void clearCart(Context context) { // This method will empty the cart completely from everything
         cart.clear();
         saveCart(context);
     }

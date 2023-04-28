@@ -31,10 +31,7 @@ public class RegistrationHelper {
         }
     }
 
-    // This method finds the positions of the first '@' character and the last '.' character.
-    // It checks that '@' is present and there is at least one character before it,
-    // and that '.' is present after '@' with at least one character between them,
-    // and at least one character after '.'.
+    // This method checks that the inputted email meets all the requirements for a valid email address
     public static boolean isEmailValid (String email) {
         int atIndex = email.indexOf('@');
         int dotIndex = email.lastIndexOf('.');
@@ -45,13 +42,13 @@ public class RegistrationHelper {
         return false;
     }
 
-    // Checks that the username includes only characters and numbers so it can be used as a name for a file
+    // Checks that the username includes only characters and numbers so it can be used as a filename
     public static boolean isUsernameValid(String username) {
         return Pattern.compile("^[a-zA-Z0-9]+$").matcher(username).matches();
     }
 
     public static String checkRegistrationInformation(String username, String email, String password, String confirmPassword, UserManager userManager) {
-        if (username.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+        if (username.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) { // Checks that the user has inputted something in every field
             return "Please fill all the fields";
         } else if (!isUsernameValid(username)) {
             return "Invalid username. Only letters and numbers are allowed.";
