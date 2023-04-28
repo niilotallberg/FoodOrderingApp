@@ -57,15 +57,15 @@ public class RegisterActivity extends AppCompatActivity {
                 String confirm = etConfirmPassword.getText().toString();
 
                 UserManager userManager = UserManager.getInstance();
-                userManager.initializeUsers(RegisterActivity.this);
+                userManager.initializeUsers(RegisterActivity.this); // Load the previously registered users from the serialized file
 
-                String errorMessage = RegistrationHelper.checkRegistrationInformation(username, email, password, confirm, userManager);
+                String errorMessage = RegistrationHelper.checkRegistrationInformation(username, email, password, confirm, userManager); // Checks if there is any errors with the registration information
 
                 if (errorMessage != null) {
                     Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_LONG).show();
                 } else {
                     User newUser = new User(username, email, password, "", User.DEFAULT_PROFILE_PICTURE_ID);
-                    userManager.addUser(RegisterActivity.this, newUser);
+                    userManager.addUser(RegisterActivity.this, newUser); // Registration information was ok -> Add the new user to the serialized file
 
                     Toast.makeText(getApplicationContext(), "Registration successful", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);

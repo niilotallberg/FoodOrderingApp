@@ -34,7 +34,7 @@ public class ShowDetailActivity extends AppCompatActivity {
         initView();
         getBundle();
 
-        btnAddToFavorites.setOnClickListener(new View.OnClickListener() {
+        btnAddToFavorites.setOnClickListener(new View.OnClickListener() { // Handles the case where user presses the star on the program that indicates if the FoodDomain is one of the users favorites
             @Override
             public void onClick(View view) {
                 FavoritesManager favoritesManager = FavoritesManager.getInstance();
@@ -71,8 +71,8 @@ public class ShowDetailActivity extends AppCompatActivity {
                 int quantity = Integer.parseInt(txtAmount.getText().toString());
 
                 CartManager cartManager = CartManager.getInstance();
-                cartManager.initializeCart(getApplicationContext(), UserAuthenticator.getInstance().getAuthenticatedUser());
-                cartManager.addCartItem(getApplicationContext(), object, quantity);
+                cartManager.initializeCart(getApplicationContext(), UserAuthenticator.getInstance().getAuthenticatedUser()); // Loads the users current cart
+                cartManager.addCartItem(getApplicationContext(), object, quantity); // Add the new item with the right quantity to cart
 
                 String message = "Added " + quantity + " " + object.getTitle() + " to your cart";
                 Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
@@ -91,7 +91,7 @@ public class ShowDetailActivity extends AppCompatActivity {
         txtDescription.setText(object.getDescription());
         txtAmount.setText(String.valueOf(orderAmount));
 
-        ivPlusButton.setOnClickListener(new View.OnClickListener() {
+        ivPlusButton.setOnClickListener(new View.OnClickListener() { // Handles the case where user wants to increase the quantity of a certain item in cart
             @Override
             public void onClick(View view) {
                 orderAmount = orderAmount + 1;
@@ -99,7 +99,7 @@ public class ShowDetailActivity extends AppCompatActivity {
             }
         });
 
-        ivMinusButton.setOnClickListener(new View.OnClickListener() {
+        ivMinusButton.setOnClickListener(new View.OnClickListener() { // Handles the case where user wants to decrease the quantity of a certain item in cart
             @Override
             public void onClick(View view) {
                 if (orderAmount > 1) {
@@ -121,7 +121,7 @@ public class ShowDetailActivity extends AppCompatActivity {
         updateFavoriteButtonState();
     }
 
-    private void updateFavoriteButtonState() {
+    private void updateFavoriteButtonState() { // Takes care of changing the color of the star in the program that indicates if the foodDomain is a users favorites
         if (isFavorite) {
             btnAddToFavorites.setImageResource(R.drawable.ic_star_favorite);
         } else {

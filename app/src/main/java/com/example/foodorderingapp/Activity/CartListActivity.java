@@ -125,7 +125,7 @@ public class CartListActivity extends AppCompatActivity {
 
         recyclerViewList.setAdapter(adapter);
 
-        if (cartManager.getCartItems().isEmpty()) {
+        if (cartManager.getCartItems().isEmpty()) { // If there is nothing in the users cart -> txtEmptyCart will be visible
             txtEmptyCart.setVisibility(View.VISIBLE);
             svCart.setVisibility(View.GONE);
         } else {
@@ -134,6 +134,7 @@ public class CartListActivity extends AppCompatActivity {
         }
     }
 
+    // Calculates all the needed prices that are displayed in cart
     private void CalculateCart() {
         double percentTax = 0.14;
         double delivery = 5;

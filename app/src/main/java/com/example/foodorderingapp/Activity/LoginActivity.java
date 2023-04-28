@@ -51,13 +51,13 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 User user = login(email, password);
                 if (user != null) {
-                    CartManager.getInstance().initializeCart(LoginActivity.this, user);
+                    CartManager.getInstance().initializeCart(LoginActivity.this, user); // Loads the users cart from a serialized file
 
                     UserAuthenticator userAuthenticator = UserAuthenticator.getInstance();
-                    userAuthenticator.setAuthenticatedUser(user);
+                    userAuthenticator.setAuthenticatedUser(user); // Sets the current user
 
                     FavoritesManager favoritesManager = FavoritesManager.getInstance();
-                    user.setFavoriteFoods(favoritesManager.loadFavorites(LoginActivity.this, user));
+                    user.setFavoriteFoods(favoritesManager.loadFavorites(LoginActivity.this, user)); // Load the users favorites from a serialized file
 
                     Intent intent = new Intent(LoginActivity.this, HomePageActivity.class);
                     startActivity(intent);
@@ -78,6 +78,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    // Checks if the email and password matches to user that has been serialized in a file that maintains registered users
     private User login(String email, String password) {
         UserManager userManager = UserManager.getInstance();
         userManager.initializeUsers(LoginActivity.this);

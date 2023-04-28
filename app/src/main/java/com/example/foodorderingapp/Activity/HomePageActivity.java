@@ -61,7 +61,7 @@ public class HomePageActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onBackPressed() {
+    public void onBackPressed() { // The users cannot press the back button on the phone
         Toast.makeText(this, "You can't go back, please place your order or logout from profile settings", Toast.LENGTH_SHORT).show();
     }
 

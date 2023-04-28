@@ -43,9 +43,6 @@ public class ProfileSettingsActivity extends AppCompatActivity {
         ivCurrentProfilePicture.setImageResource(currentUser.getProfilePicture());
         selectedProfilePictureId = currentUser.getProfilePicture();
 
-
-
-
         if (currentUser != null) {
             etEmail.setText(currentUser.getEmail());
             etPassword.setText(currentUser.getPassword());
@@ -98,7 +95,7 @@ public class ProfileSettingsActivity extends AppCompatActivity {
             }
         });
 
-        btnSaveChanges.setOnClickListener(new View.OnClickListener() {
+        btnSaveChanges.setOnClickListener(new View.OnClickListener() { // Updates the users information to the serialized file and the object
             @Override
             public void onClick(View view) {
                 String email = etEmail.getText().toString();
@@ -108,7 +105,7 @@ public class ProfileSettingsActivity extends AppCompatActivity {
                 if (!email.isEmpty() && !password.isEmpty()) {
                     UserManager userManager = UserManager.getInstance();
 
-                    // Check if the email already exists and it's not the current user's email
+                    // Checks if the email already exists and it's not the current user's email
                     if (userManager.isEmailExists(email) && !email.equals(currentUser.getEmail())) {
                         Toast.makeText(ProfileSettingsActivity.this, "Email already exists. Please use a different one.", Toast.LENGTH_SHORT).show();
                     } else {

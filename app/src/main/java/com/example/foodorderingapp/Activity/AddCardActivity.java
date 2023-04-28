@@ -20,8 +20,6 @@ public class AddCardActivity extends AppCompatActivity {
     private EditText etExpiringDate;
     private EditText etSafetyNumber;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +41,7 @@ public class AddCardActivity extends AppCompatActivity {
         });
     }
 
+    // Checks if the inputted card number is exactly 12 characters
     private boolean validateCardNumber() {
         String cardNumber = etCardNumber.getText().toString();
         if (cardNumber.length() != 12) {
@@ -53,6 +52,7 @@ public class AddCardActivity extends AppCompatActivity {
         }
     }
 
+    // Checks if the inputted name on card is empty
     private boolean validateNameOnCard() {
         String nameOnCard = etNameOnCard.getText().toString();
         if (nameOnCard.isEmpty()) {
@@ -63,6 +63,7 @@ public class AddCardActivity extends AppCompatActivity {
         }
     }
 
+    // Checks if the inputted expiring date is in format MM/YY
     private boolean validateExpiringDate() {
         String expiringDate = etExpiringDate.getText().toString();
         if (!expiringDate.matches("\\d{2}/\\d{2}")) {
@@ -73,6 +74,7 @@ public class AddCardActivity extends AppCompatActivity {
         }
     }
 
+    // Checks that the inputted safety number is exactly 3 digits
     private boolean validateSafetyNumber() {
         String safetyNumber = etSafetyNumber.getText().toString();
         if (safetyNumber.length() != 3) {

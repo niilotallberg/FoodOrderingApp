@@ -56,12 +56,12 @@ public class OrderConfirmationActivity extends AppCompatActivity {
                     deliveryAddressLayout.setVisibility(View.GONE);
                 }
             }
-        });
+        }); // If the user chooses delivery over pickup, the program asks or the delivery address
 
         User currentUser = UserAuthenticator.getInstance().getAuthenticatedUser();
         if (currentUser != null && currentUser.getAddress() != null) {
             etDeliveryAddress.setText(currentUser.getAddress());
-        }
+        } // If the user has already an address, it will be displayed as the assumed delivery address
 
         btnAddCard.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -120,17 +120,17 @@ public class OrderConfirmationActivity extends AppCompatActivity {
         RadioButton radioButtonMobilePay = findViewById(R.id.radioBtnMobilePay);
         RadioButton radioButtonPayPal = findViewById(R.id.radioBtnPayPal);
 
-        if (!cardAdded && !radioButtonMobilePay.isChecked() && !radioButtonPayPal.isChecked()) {
+        if (!cardAdded && !radioButtonMobilePay.isChecked() && !radioButtonPayPal.isChecked()) { // Blocks the user from confirming the order before choosing a payment method
             Toast.makeText(this, "Please input your card or choose a different payment method", Toast.LENGTH_SHORT).show();
             return false;
         }
 
-        if (radioGroupDeliveryMethod.getCheckedRadioButtonId() == -1) {
+        if (radioGroupDeliveryMethod.getCheckedRadioButtonId() == -1) { // Blocks the user from confirming the order before choosing a delivery method
             Toast.makeText(this, "Please select a delivery method", Toast.LENGTH_SHORT).show();
             return false;
         }
 
-        if (radioBtnDelivery.isChecked() && etDeliveryAddress.getText().toString().isEmpty()) {
+        if (radioBtnDelivery.isChecked() && etDeliveryAddress.getText().toString().isEmpty()) { // Blocks the user from confirming the order before choosing a delivery address (if the user chose delivery)
             Toast.makeText(this, "Please input your delivery address", Toast.LENGTH_SHORT).show();
             return false;
         }

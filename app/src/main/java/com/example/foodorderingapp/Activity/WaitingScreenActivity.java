@@ -59,17 +59,17 @@ public class WaitingScreenActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onBackPressed() {
+    public void onBackPressed() { // The users cannot press the back button on the phone
         Toast.makeText(this, "You can't go back, please return to main menu", Toast.LENGTH_SHORT).show();
     }
 
-    public void submitStars(View view){
+    public void submitStars(View view){ // Informs the user that the rating has been received
         float rating = rbRatingbar.getRating();
         String message = rating + "/5 stars. " + "Thanks for the rating! ";
         Toast.makeText(this, message,Toast.LENGTH_SHORT).show();
     }
 
-    private void startTimer() {
+    private void startTimer() { // Activates a timer for the time for delivery / pickup
         Random random = new Random();
         int randomTime = random.nextInt(11) + 20; // Generates random time between 10-30 minutes
         timeLeftInMillis = TimeUnit.MINUTES.toMillis(randomTime);
@@ -78,21 +78,17 @@ public class WaitingScreenActivity extends AppCompatActivity {
             @Override
             public void onTick(long millisUntilFinished) {
                 timeLeftInMillis = millisUntilFinished;
-
-                updateCountdownText();
+                updateCountdownText(); // Handles the updating of the time remaining
             }
 
             @Override
             public void onFinish() {
                 twCountdown.setText("Sorry, we are a bit late!");
-
             }
         }.start();
-
-
     }
 
-    private void updateCountdownText() {
+    private void updateCountdownText() { // Takes care of updating the time remaining
         int minutes = (int) (timeLeftInMillis / 1000) / 60;
         int seconds = (int) (timeLeftInMillis / 1000) % 60;
 
@@ -103,7 +99,6 @@ public class WaitingScreenActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-
         if (countDownTimer != null) {
             countDownTimer.cancel();
         }
