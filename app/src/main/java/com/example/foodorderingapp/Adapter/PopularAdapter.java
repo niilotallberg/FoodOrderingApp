@@ -42,7 +42,7 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.ViewHold
 
         holder.pic.setImageResource(drawableResourceId);
 
-        holder.addBtn.setOnClickListener(new View.OnClickListener() {
+        holder.addBtn.setOnClickListener(new View.OnClickListener() { // Listener for the add to cart button (Starts ShowDetailActivity if the user chooses to press the button)
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(holder.itemView.getContext(), ShowDetailActivity.class);

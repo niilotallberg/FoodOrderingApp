@@ -43,7 +43,7 @@ public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.Favo
         int drawableResourceId = holder.itemView.getContext().getResources().getIdentifier(food.getPic(), "drawable", holder.itemView.getContext().getPackageName());
         holder.ivFavoritePic.setImageResource(drawableResourceId);
 
-        holder.txtAddToCartButton.setOnClickListener(view -> {
+        holder.txtAddToCartButton.setOnClickListener(view -> { // Listener for the add to cart button (Starts ShowDetailActivity if the user chooses to press the button)
             Intent intent = new Intent(holder.itemView.getContext(), ShowDetailActivity.class);
             intent.putExtra("object", food);
             holder.itemView.getContext().startActivity(intent);

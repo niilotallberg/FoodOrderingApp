@@ -91,7 +91,7 @@ public class ShowDetailActivity extends AppCompatActivity {
         txtDescription.setText(object.getDescription());
         txtAmount.setText(String.valueOf(orderAmount));
 
-        ivPlusButton.setOnClickListener(new View.OnClickListener() { // Handles the case where user wants to increase the quantity of a certain item in cart
+        ivPlusButton.setOnClickListener(new View.OnClickListener() { // Handles the case where user wants to increase the quantity of a certain item that will be added to cart
             @Override
             public void onClick(View view) {
                 orderAmount = orderAmount + 1;
@@ -99,7 +99,7 @@ public class ShowDetailActivity extends AppCompatActivity {
             }
         });
 
-        ivMinusButton.setOnClickListener(new View.OnClickListener() { // Handles the case where user wants to decrease the quantity of a certain item in cart
+        ivMinusButton.setOnClickListener(new View.OnClickListener() { // Handles the case where user wants to decrease the quantity of a certain item that will be added to cart
             @Override
             public void onClick(View view) {
                 if (orderAmount > 1) {

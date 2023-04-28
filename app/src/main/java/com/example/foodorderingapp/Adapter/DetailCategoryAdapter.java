@@ -41,7 +41,7 @@ public class DetailCategoryAdapter extends RecyclerView.Adapter<DetailCategoryAd
         holder.txtCategoryFoodTitle.setText(food.getTitle());
         holder.txtCategoryFoodFee.setText(String.format("%.2f", food.getFee()));
 
-        holder.txtAddToCartButton.setOnClickListener(new View.OnClickListener() {
+        holder.txtAddToCartButton.setOnClickListener(new View.OnClickListener() { // Listener for the add to cart button (Starts ShowDetailActivity if the user chooses to press the button)
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), ShowDetailActivity.class);

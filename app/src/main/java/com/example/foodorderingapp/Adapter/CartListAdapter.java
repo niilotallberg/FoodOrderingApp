@@ -51,7 +51,7 @@ public class CartListAdapter extends RecyclerView.Adapter<CartListAdapter.ViewHo
         int drawableResourceId = holder.itemView.getContext().getResources().getIdentifier(foodDomain.getPic(), "drawable", holder.itemView.getContext().getPackageName());
         holder.ivCartItemPicture.setImageResource(drawableResourceId);
 
-        holder.btnPlusCart.setOnClickListener(new View.OnClickListener() {
+        holder.btnPlusCart.setOnClickListener(new View.OnClickListener() { // Handles the case where user wants to increase the quantity of a certain item in cart
             @Override
             public void onClick(View view) {
                 Integer currentQuantity = cartItems.get(foodDomain);
@@ -65,7 +65,7 @@ public class CartListAdapter extends RecyclerView.Adapter<CartListAdapter.ViewHo
             }
         });
 
-        holder.btnMinusCart.setOnClickListener(new View.OnClickListener() {
+        holder.btnMinusCart.setOnClickListener(new View.OnClickListener() { // Handles the case where user wants to decrease the quantity of a certain item in cart
             @Override
             public void onClick(View view) {
                 Integer currentQuantity = cartItems.get(foodDomain);
