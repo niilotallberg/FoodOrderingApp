@@ -27,7 +27,7 @@ public class UserManager {
         return instance;
     }
 
-    private void saveUsers(Context context) { // Saves all the registered at the moment users to a file
+    private void saveUsers(Context context) { // Saves all the users registered at the moment to a file
         Serializer.serializeObject((ArrayList<User>) users, context, USERS_FILE);
     }
 
