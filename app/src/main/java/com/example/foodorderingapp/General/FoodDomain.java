@@ -8,6 +8,7 @@ package com.example.foodorderingapp.General;
 import java.io.Serializable;
 
 public class FoodDomain implements Serializable {
+    private static final long serialVersionUID = 936421323;
     private String title;
     private String pic;
     private String description;

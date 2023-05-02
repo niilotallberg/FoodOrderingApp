@@ -12,6 +12,7 @@ import java.util.ArrayList;
 public class User implements Serializable {
 
     public static final int DEFAULT_PROFILE_PICTURE_ID = R.drawable.baseline_profile_picture;
+    private static final long serialVersionUID = 639424123;
     private String username;
     private String email;
     private String password;
